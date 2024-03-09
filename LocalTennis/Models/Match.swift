@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Match: ObservableObject {    
+class Match: ObservableObject {
     let playerHome: Player
     let playerAway: Player
     let mode: Mode
@@ -28,18 +28,30 @@ class Match: ObservableObject {
         !self.isLive && self.sets.count > 0
     }
     
+    @Published var winner: PlayerSide?
+    
     init(playerHome: Player, playerAway: Player, mode: Mode, sets: [Set] = [], currentSet: Set? = nil) {
         self.playerHome = playerHome
         self.playerAway = playerAway
         self.mode = mode
         self.sets = sets
         self.currentSet = currentSet
+        self.winner = nil
+    }
+    
+    init(playerHome: Player, playerAway: Player, mode: Mode, sets: [Set] = [], winner: PlayerSide? = nil) {
+        self.playerHome = playerHome
+        self.playerAway = playerAway
+        self.mode = mode
+        self.sets = sets
+        self.currentSet = nil
+        self.winner = winner
     }
 }
 
 extension Match {
     func start() -> Void {
-        if (!self.isLive && self.sets.count == 0) {
+        if (!self.isLive && self.sets.count == 0 && self.winner == nil) {
             let newSetId = self.sets.count + 1
             self.currentSet = Set(id: newSetId)
             self.currentSet!.start(serve: .playerHome)
@@ -55,7 +67,7 @@ extension Match {
         self.sets.append(set)
         
         if (self.sets.count == self.mode.rawValue) {
-            return self.end()
+            return self.end(matchWinner: setWinner)
         }
         
         let newSetId = set.id + 1
@@ -78,7 +90,7 @@ extension Match {
         }
     }
     
-    func end() -> Void {
+    func end(matchWinner: PlayerSide) -> Void {
         if (!self.isLive) {
             return
         }
@@ -90,6 +102,7 @@ extension Match {
         }
 
         self.currentSet = nil
+        self.winner = matchWinner
     }
 }
 
@@ -97,7 +110,9 @@ extension Match {
     static let exampleMatchNew = Match(
         playerHome: Player(id: "1", name: "Carlos Alcaraz"),
         playerAway: Player(id: "2", name: "Novak Djokovic"),
-        mode: .bestOfThree
+        mode: .bestOfThree,
+        sets: [],
+        currentSet: nil
     )
     
     static let exampleMatch = Match(
