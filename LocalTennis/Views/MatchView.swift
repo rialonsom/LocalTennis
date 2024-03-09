@@ -15,6 +15,7 @@ struct MatchView: View {
         let isFinished = match.isFinished
         let currentSet = match.currentSet
         let currentGame = currentSet?.currentGame
+        let winner = match.winner
         
         VStack {
             HStack {
@@ -28,6 +29,8 @@ struct MatchView: View {
                                 .frame(width: 8, height: 8)
                         }
                     }
+                    .opacity(winner != nil && winner == .playerAway ? 0.4 : 1)
+
                     GridRow {
                         Image(systemName: "flag")
                         Text(match.playerAway.name)
@@ -37,8 +40,11 @@ struct MatchView: View {
                                 .frame(width: 8, height: 8)
                         }
                     }
+                    .opacity(winner != nil && winner == .playerHome ? 0.4 : 1)
                 }
+
                 Spacer()
+
                 Grid(alignment: .center) {
                     GridRow {
                         ForEach(match.sets) { set in
@@ -60,6 +66,8 @@ struct MatchView: View {
                             }
                         }
                     }
+                    .opacity(winner != nil && winner == .playerAway ? 0.4 : 1)
+
                     GridRow {
                         ForEach(match.sets) { set in
                             Text("\(set.gamesPlayerAway)")
@@ -80,6 +88,7 @@ struct MatchView: View {
                             }
                         }
                     }
+                    .opacity(winner != nil && winner == .playerHome ? 0.4 : 1)
                 }
             }
             Button("+ Home") {
@@ -95,7 +104,7 @@ struct MatchView: View {
             }
             .disabled(isLive || isFinished)
             Button("End") {
-                match.end()
+                match.end(matchWinner: .playerHome)
             }
             .disabled(!isLive)
         }
