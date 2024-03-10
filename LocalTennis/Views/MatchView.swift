@@ -1,6 +1,6 @@
 //
 //  MatchRow.swift
-//  TennisSync
+//  LocalTennis
 //
 //  Created by Rodrigo Alonso on 19-01-24.
 //
