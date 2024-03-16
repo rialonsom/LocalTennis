@@ -106,12 +106,12 @@
 		4DC5EB072B6FD36D0006A83C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D36E7292BA5F4D700187DA7 /* MainTabView.swift */,
 				4D36E7252BA5F2D300187DA7 /* HistoryView.swift */,
 				4D36E7272BA5F2F000187DA7 /* PlayersView.swift */,
 				4DC5EB082B6FD37E0006A83C /* MatchView.swift */,
 				4DA6CAD62BA51195001FF89D /* MatchViewScore.swift */,
 				4DA6CAD82BA52378001FF89D /* MatchViewActions.swift */,
-				4D36E7292BA5F4D700187DA7 /* MainTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

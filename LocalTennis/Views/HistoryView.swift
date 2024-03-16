@@ -9,7 +9,18 @@ import SwiftUI
 
 struct HistoryView: View {
     var body: some View {
-        Text("History view")
+        NavigationStack {
+            List {
+                Text("Match 1")
+                Text("Match 2")
+            }
+            .navigationTitle("History")
+            .toolbar {
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Label("New match", systemImage: "plus")
+                })
+            }
+        }
     }
 }
 
