@@ -19,7 +19,6 @@ struct MatchViewScore: View {
             HStack {
                 Grid(alignment: .leading) {
                     GridRow {
-                        Image(systemName: "flag")
                         Text(match.playerHome)
                         if (currentGame?.currentServe == .playerHome) {
                             Image(systemName: "circle.fill")
@@ -30,7 +29,6 @@ struct MatchViewScore: View {
                     .opacity(winner != nil && winner == .playerAway ? 0.4 : 1)
 
                     GridRow {
-                        Image(systemName: "flag")
                         Text(match.playerAway)
                         if (currentGame?.currentServe == .playerAway) {
                             Image(systemName: "circle.fill")
