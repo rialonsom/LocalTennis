@@ -139,13 +139,19 @@ extension Match {
             Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
             Set(id: 2, gamesPlayerHome: 6, gamesPlayerAway: 4),
             Set(id: 3, gamesPlayerHome: 5, gamesPlayerAway: 7),
-            Set(id: 4, gamesPlayerHome: 6, gamesPlayerAway: 6)
+            Set(id: 4,
+                gamesPlayerHome: 6,
+                gamesPlayerAway: 7,
+                hasTieBreak: true,
+                tieBreakPointsPlayerHome: 4,
+                tieBreakPointsPlayerAway: 7
+               ),
         ],
         currentSet: Set(
             id: 5,
             gamesPlayerHome: 6,
             gamesPlayerAway: 6,
-            currentGame: Game(pointsPlayerHome: .tieBreakPoint(5), pointsPlayerAway: .tieBreakPoint(3), serve: .playerAway)
+            currentGame: Game(pointsPlayerHome: .forty, pointsPlayerAway: .forty, serve: .playerAway)
         )
     )
 }

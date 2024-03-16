@@ -28,8 +28,6 @@ struct MatchView: View {
 }
 
 #Preview {
-    let match = Match.exampleMatchNew
-    
     return MatchView()
-        .environmentObject(match)
+        .environmentObject(Match.exampleMatchTieBreak)
 }
