@@ -8,8 +8,8 @@
 import Foundation
 
 class Match: ObservableObject {
-    let playerHome: Player
-    let playerAway: Player
+    let playerHome: String
+    let playerAway: String
     let mode: Mode
     
     enum Mode: Int {
@@ -31,8 +31,8 @@ class Match: ObservableObject {
     @Published var winner: PlayerSide?
     
     init(playerHome: Player, playerAway: Player, mode: Mode, sets: [Set] = [], currentSet: Set? = nil) {
-        self.playerHome = playerHome
-        self.playerAway = playerAway
+        self.playerHome = playerHome.name
+        self.playerAway = playerAway.name
         self.mode = mode
         self.sets = sets
         self.currentSet = currentSet
@@ -40,8 +40,8 @@ class Match: ObservableObject {
     }
     
     init(playerHome: Player, playerAway: Player, mode: Mode, sets: [Set] = [], winner: PlayerSide? = nil) {
-        self.playerHome = playerHome
-        self.playerAway = playerAway
+        self.playerHome = playerHome.name
+        self.playerAway = playerAway.name
         self.mode = mode
         self.sets = sets
         self.currentSet = nil
