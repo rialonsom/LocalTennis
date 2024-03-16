@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DA6CAD72BA51195001FF89D /* MatchViewScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD62BA51195001FF89D /* MatchViewScore.swift */; };
+		4DA6CAD92BA52378001FF89D /* MatchViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD82BA52378001FF89D /* MatchViewActions.swift */; };
 		4DC5EAED2B6FD31E0006A83C /* LocalTennisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */; };
 		4DC5EAF12B6FD31F0006A83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */; };
 		4DC5EAF42B6FD31F0006A83C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC5EAF32B6FD31F0006A83C /* Preview Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4DA6CAD62BA51195001FF89D /* MatchViewScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewScore.swift; sourceTree = "<group>"; };
+		4DA6CAD82BA52378001FF89D /* MatchViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewActions.swift; sourceTree = "<group>"; };
 		4DC5EAE92B6FD31E0006A83C /* LocalTennis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTennis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisApp.swift; sourceTree = "<group>"; };
 		4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				4DC5EB082B6FD37E0006A83C /* MatchView.swift */,
+				4DA6CAD62BA51195001FF89D /* MatchViewScore.swift */,
+				4DA6CAD82BA52378001FF89D /* MatchViewActions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,12 +179,14 @@
 			files = (
 				4DC5EB012B6FD3430006A83C /* Player.swift in Sources */,
 				4DC5EB042B6FD3430006A83C /* Game.swift in Sources */,
+				4DA6CAD92BA52378001FF89D /* MatchViewActions.swift in Sources */,
 				4DC5EB032B6FD3430006A83C /* Set.swift in Sources */,
 				4DC5EAED2B6FD31E0006A83C /* LocalTennisApp.swift in Sources */,
 				4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */,
 				4DC5EB022B6FD3430006A83C /* Match.swift in Sources */,
 				4DC5EB092B6FD37E0006A83C /* MatchView.swift in Sources */,
 				4DC5EB002B6FD3430006A83C /* Utils.swift in Sources */,
+				4DA6CAD72BA51195001FF89D /* MatchViewScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
