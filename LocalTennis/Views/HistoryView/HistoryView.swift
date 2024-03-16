@@ -11,9 +11,12 @@ struct HistoryView: View {
     var body: some View {
         NavigationStack {
             List {
-                Text("Match 1")
-                Text("Match 2")
+                ForEach(Match.exampleHistoryMatches) { match in
+                    MatchViewScore()
+                        .environmentObject(match)
+                }
             }
+            .listStyle(.plain)
             .navigationTitle("History")
             .toolbar {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
