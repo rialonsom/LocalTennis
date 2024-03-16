@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Match: ObservableObject {
+class Match: ObservableObject, Identifiable {
     let playerHome: String
     let playerAway: String
     let mode: Mode
@@ -154,4 +154,39 @@ extension Match {
             currentGame: Game(pointsPlayerHome: .forty, pointsPlayerAway: .forty, serve: .playerAway)
         )
     )
+    
+    static let exampleHistoryMatches = [
+        Match(
+            playerHome: Player(id: "1", name: "Rodrigo"),
+            playerAway: Player(id: "2", name: "Juan"),
+            mode: .bestOfThree,
+            sets: [
+                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
+                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5)
+            ],
+            winner: .playerHome
+        ),
+        Match(
+            playerHome: Player(id: "3", name: "José"),
+            playerAway: Player(id: "1", name: "Rodrigo"),
+            mode: .bestOfThree,
+            sets: [
+                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
+                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5)
+            ],
+            winner: .playerHome
+        ),
+        Match(
+            playerHome: Player(id: "4", name: "Daniel"),
+            playerAway: Player(id: "2", name: "Juan"),
+            mode: .bestOfFive,
+            sets: [
+                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
+                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5),
+                Set(id: 3, gamesPlayerHome: 3, gamesPlayerAway: 6),
+                Set(id: 4, gamesPlayerHome: 6, gamesPlayerAway: 0)
+            ],
+            winner: .playerHome
+        )
+    ]
 }
