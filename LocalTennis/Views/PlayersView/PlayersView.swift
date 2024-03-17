@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct PlayersView: View {
+    @State private var isShowingNewPlayerSheet = false
+    @State private var players = Player.examplePlayers
+    
     var body: some View {
-        Text("Players view")
+        NavigationStack {
+            List {
+                ForEach(players) { player in
+                    Text("\(player.name)")
+                }
+            }
+            .navigationTitle("Players")
+            .toolbar {
+                Button(action: {
+                    isShowingNewPlayerSheet.toggle()
+                }, label: {
+                    Label("New match", systemImage: "plus")
+                })
+            }
+            .sheet(isPresented: $isShowingNewPlayerSheet, content: {
+                NewPlayerView(isPresented: $isShowingNewPlayerSheet, players: $players)
+            })
+        }
     }
 }
 
