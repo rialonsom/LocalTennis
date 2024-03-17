@@ -108,16 +108,16 @@ extension Match {
 
 extension Match {
     static let exampleMatchNew = Match(
-        playerHome: Player(id: "1", name: "Carlos Alcaraz"),
-        playerAway: Player(id: "2", name: "Novak Djokovic"),
+        playerHome: Player(name: "Carlos Alcaraz"),
+        playerAway: Player(name: "Novak Djokovic"),
         mode: .bestOfThree,
         sets: [],
         currentSet: nil
     )
     
     static let exampleMatch = Match(
-        playerHome: Player(id: "1", name: "Carlos Alcaraz"),
-        playerAway: Player(id: "2", name: "Novak Djokovic"),
+        playerHome: Player(name: "Carlos Alcaraz"),
+        playerAway: Player(name: "Novak Djokovic"),
         mode: .bestOfThree,
         sets: [
             Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -132,8 +132,8 @@ extension Match {
     )
     
     static let exampleMatchTieBreak = Match(
-        playerHome: Player(id: "1", name: "Carlos Alcaraz"),
-        playerAway: Player(id: "2", name: "Novak Djokovic"),
+        playerHome: Player(name: "Carlos Alcaraz"),
+        playerAway: Player(name: "Novak Djokovic"),
         mode: .bestOfFive,
         sets: [
             Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -157,8 +157,8 @@ extension Match {
     
     static let exampleHistoryMatches = [
         Match(
-            playerHome: Player(id: "1", name: "Rodrigo"),
-            playerAway: Player(id: "2", name: "Juan"),
+            playerHome: Player(name: "Rodrigo"),
+            playerAway: Player(name: "Juan"),
             mode: .bestOfThree,
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -167,8 +167,8 @@ extension Match {
             winner: .playerHome
         ),
         Match(
-            playerHome: Player(id: "3", name: "José"),
-            playerAway: Player(id: "1", name: "Rodrigo"),
+            playerHome: Player(name: "José"),
+            playerAway: Player(name: "Rodrigo"),
             mode: .bestOfThree,
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -177,8 +177,8 @@ extension Match {
             winner: .playerHome
         ),
         Match(
-            playerHome: Player(id: "4", name: "Daniel"),
-            playerAway: Player(id: "2", name: "Juan"),
+            playerHome: Player(name: "Daniel"),
+            playerAway: Player(name: "Juan"),
             mode: .bestOfFive,
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),

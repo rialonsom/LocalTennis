@@ -7,12 +7,20 @@
 
 import Foundation
 
-struct Player {
-    let id: String
+struct Player: Identifiable {
+    let id: UUID
     let name: String
     
-    init(id: String, name: String) {
-        self.id = id
+    init(name: String) {
+        self.id = UUID()
         self.name = name
     }
+}
+
+extension Player {
+    static let examplePlayers = [
+        Player(name: "Rodrigo"),
+        Player(name: "Juan"),
+        Player(name: "José"),
+    ]
 }
