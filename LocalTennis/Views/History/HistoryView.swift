@@ -12,7 +12,7 @@ struct HistoryView: View {
         NavigationStack {
             List {
                 ForEach(Match.exampleHistoryMatches) { match in
-                    MatchViewScore()
+                    MatchScoreView()
                         .environmentObject(match)
                 }
             }

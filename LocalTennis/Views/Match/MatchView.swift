@@ -15,11 +15,11 @@ struct MatchView: View {
             
             Spacer()
             
-            MatchViewScore()
+            MatchScoreView()
             
             Spacer()
             
-            MatchViewActions()
+            MatchActionsView()
             
             Spacer()
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewPlayerView: View {
+struct NewPlayerSheetView: View {
     @Binding var isPresented: Bool
     @Binding var players: [Player]
     @State private var name: String = ""
@@ -41,7 +41,7 @@ struct NewPlayerView: View {
 }
 
 #Preview {
-    NewPlayerView(
+    NewPlayerSheetView(
         isPresented: .constant(true),
         players: .constant(Player.examplePlayers)
     )
