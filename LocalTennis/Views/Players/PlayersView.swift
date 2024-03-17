@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PlayersView: View {
+    @Binding var players: [Player]
     @State private var isShowingNewPlayerSheet = false
-    @State private var players = Player.examplePlayers
     
     var body: some View {
         NavigationStack {
@@ -34,5 +34,5 @@ struct PlayersView: View {
 }
 
 #Preview {
-    PlayersView()
+    PlayersView(players: .constant(Player.examplePlayers))
 }
