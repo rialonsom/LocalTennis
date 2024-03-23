@@ -35,7 +35,7 @@ struct NewPlayerSheetView: View {
                         Text("Create")
                     })
                 }
-        }
+            }
         }
     }
 }
