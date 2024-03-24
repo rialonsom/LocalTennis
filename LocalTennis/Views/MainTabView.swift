@@ -13,38 +13,47 @@ struct MainTabView: View {
     @State private var isShowingNewMatchSheet: Bool = false
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HistoryView(players: $players)
-                .tabItem {
-                    Label("History", systemImage: "figure.tennis")
+        ZStack(alignment: .bottom) {
+            TabView(selection: $selectedTab) {
+                Group {
+                    HistoryView(players: $players)
+                        .tabItem {
+                            Label("History", systemImage: "figure.tennis")
+                        }
+                        .tag(0)
+                    Spacer()
+                        .tag(1)
+                    PlayersView(players: $players)
+                        .tabItem {
+                            Label("Players", systemImage: "person.3.sequence")
+                        }
+                        .tag(2)
                 }
-                .tag(0)
-            Spacer()
-                .tabItem {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundStyle(.green)
-                }
-                .tag(1)
-            PlayersView(players: $players)
-                .tabItem {
-                    Label("Players", systemImage: "person.3.sequence")
-                }
-                .tag(2)
-        }
-        .onChange(of: selectedTab) { oldValue, newValue in
-            if (newValue == 1) {
-                selectedTab = oldValue
-                isShowingNewMatchSheet = true
-            } else {
-                selectedTab = newValue
+                .toolbarBackground(.visible, for: .tabBar)                
             }
+            .onChange(of: selectedTab) { oldValue, newValue in
+                selectedTab = newValue == 1 ? oldValue: newValue
+            }
+            .sheet(isPresented: $isShowingNewMatchSheet, content: {
+                NewMatchView(players: $players, isPresented: $isShowingNewMatchSheet)
+            })
+            .tint(.black)
+            
+            Button(action: {
+                isShowingNewMatchSheet = true
+            }, label: {
+                Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .tint(.red)
+                    .background(.white)
+            })
+            .frame(width: 50, height: 50)
+            .clipShape(Circle())
+            .padding(.bottom, 20)
         }
-        .sheet(isPresented: $isShowingNewMatchSheet, content: {
-            NewMatchView(players: $players, isPresented: $isShowingNewMatchSheet)
-        })
-        
     }
 }
+
 
 #Preview {
     MainTabView()
