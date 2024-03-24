@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HistoryView: View {
     @Binding var players: [Player]
-    @State private var isShowingNewMatchSheet: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -21,16 +20,6 @@ struct HistoryView: View {
             }
             .listStyle(.plain)
             .navigationTitle("History")
-            .toolbar {
-                Button(action: {
-                    isShowingNewMatchSheet.toggle()
-                }, label: {
-                    Label("New match", systemImage: "plus")
-                })
-            }
-            .sheet(isPresented: $isShowingNewMatchSheet, content: {
-                NewMatchView(players: $players, isPresented: $isShowingNewMatchSheet)
-            })
         }
     }
 }
