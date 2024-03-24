@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MatchActionsView: View {
-    @EnvironmentObject var match: Match
+    @ObservedObject var match: Match
     
     var body: some View {
         let isLive = match.isLive
@@ -74,6 +74,5 @@ struct MatchActionsView: View {
 }
 
 #Preview {
-    MatchActionsView()
-        .environmentObject(Match.exampleMatch)
+    MatchActionsView(match: Match.exampleMatch)
 }

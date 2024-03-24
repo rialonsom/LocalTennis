@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct MatchView: View {
-    @EnvironmentObject var match: Match
+    @ObservedObject var match: Match
     
     var body: some View {
         VStack {
             
             Spacer()
             
-            MatchScoreView()
+            MatchScoreView(match: match)
             
             Spacer()
             
-            MatchActionsView()
+            MatchActionsView(match: match)
             
             Spacer()
 
@@ -28,6 +28,5 @@ struct MatchView: View {
 }
 
 #Preview {
-    return MatchView()
-        .environmentObject(Match.exampleMatchTieBreak)
+    MatchView(match: Match.exampleMatchTieBreak)
 }

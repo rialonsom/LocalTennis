@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MatchScoreView: View {
-    @EnvironmentObject var match: Match
+    @ObservedObject var match: Match
     
     var body: some View {
         let currentSet = match.currentSet
@@ -92,6 +92,5 @@ struct MatchScoreView: View {
 }
 
 #Preview {
-    MatchScoreView()
-        .environmentObject(Match.exampleMatch)
+    MatchScoreView(match: Match.exampleMatch)
 }
