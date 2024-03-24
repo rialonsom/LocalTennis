@@ -9,24 +9,38 @@ import SwiftUI
 
 struct MatchView: View {
     @ObservedObject var match: Match
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
-        VStack {
-            
-            Spacer()
-            
-            MatchScoreView(match: match)
-            
-            Spacer()
-            
-            MatchActionsView(match: match)
-            
-            Spacer()
-
+        NavigationStack {
+            VStack {
+                
+                Spacer()
+                
+                MatchScoreView(match: match)
+                
+                Spacer()
+                
+                MatchActionsView(match: match)
+                
+                Spacer()
+                
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: {
+                        localTennisManager.removeOngoingMatch()
+                    }, label: {
+                        Text("Done")
+                    })
+                    .disabled(!match.isFinished)
+                }
+        }
         }
     }
 }
 
 #Preview {
     MatchView(match: Match.exampleMatchTieBreak)
+        .environmentObject(LocalTennisManager())
 }

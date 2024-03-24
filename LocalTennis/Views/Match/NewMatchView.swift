@@ -10,10 +10,11 @@ import SwiftUI
 struct NewMatchView: View {
     @Binding var players: [Player]
     @Binding var isPresented: Bool
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     @State private var selectedPlayerHome: Player = Player.examplePlayers[0]
     @State private var selectedPlayerAway: Player = Player.examplePlayers[1]
     @State private var selectedMode: Match.Mode = .bestOfThree
-
+    
     @State private var focusedField: FocusedField? = nil
     
     private enum FocusedField {
@@ -78,7 +79,7 @@ struct NewMatchView: View {
                     }
                     .pickerStyle(.wheel)
                 }
-
+                
                 // Mode
                 Picker("Mode", selection: $selectedMode) {
                     Text("Best of 3").tag(Match.Mode.bestOfThree)
@@ -98,11 +99,17 @@ struct NewMatchView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
                         isPresented.toggle()
+                        localTennisManager.setupOngoingMatch(
+                            playerHome: selectedPlayerHome,
+                            playerAway: selectedPlayerAway,
+                            mode: selectedMode
+                        )
+                        
                     }, label: {
                         Text("Create")
                     })
                 }
-        }
+            }
         }
     }
 }

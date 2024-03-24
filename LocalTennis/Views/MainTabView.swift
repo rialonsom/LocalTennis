@@ -11,6 +11,8 @@ struct MainTabView: View {
     @State private var players = Player.examplePlayers
     @State private var selectedTab = 0
     @State private var isShowingNewMatchSheet: Bool = false
+    @State private var isShowingCurrentLiveMatchSheet: Bool = false
+    @StateObject private var localTennisManager = LocalTennisManager()
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -37,6 +39,15 @@ struct MainTabView: View {
             .sheet(isPresented: $isShowingNewMatchSheet, content: {
                 NewMatchView(players: $players, isPresented: $isShowingNewMatchSheet)
             })
+
+            .onChange(of: localTennisManager.isMatchOngoing, { oldValue, newValue in
+                isShowingCurrentLiveMatchSheet = newValue
+            })
+            .fullScreenCover(isPresented: $isShowingCurrentLiveMatchSheet, content: {
+                if (localTennisManager.isMatchOngoing) {
+                    MatchView(match: localTennisManager.currentOngoingMatch!)
+                }
+            })
             .tint(.black)
             
             Button(action: {
@@ -51,6 +62,7 @@ struct MainTabView: View {
             .clipShape(Circle())
             .padding(.bottom, 20)
         }
+        .environmentObject(localTennisManager)
     }
 }
 
