@@ -23,6 +23,7 @@
 		4DC5EB032B6FD3430006A83C /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFE2B6FD3430006A83C /* Set.swift */; };
 		4DC5EB042B6FD3430006A83C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFF2B6FD3430006A83C /* Game.swift */; };
 		4DC5EB092B6FD37E0006A83C /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EB082B6FD37E0006A83C /* MatchView.swift */; };
+		4DE9526E2BB078FA00AFD01E /* LocalTennisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */; };
 		4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D7332B6FD58A005F3FFF /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		4DC5EAFE2B6FD3430006A83C /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		4DC5EAFF2B6FD3430006A83C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4DC5EB082B6FD37E0006A83C /* MatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisManager.swift; sourceTree = "<group>"; };
 		4DF2D7332B6FD58A005F3FFF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				4DC5EAFC2B6FD3430006A83C /* Player.swift */,
 				4DC5EAFE2B6FD3430006A83C /* Set.swift */,
 				4DC5EAFB2B6FD3420006A83C /* Utils.swift */,
+				4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				4D0FDF8F2BA77F720034351C /* NewMatchView.swift in Sources */,
 				4D36E72A2BA5F4D700187DA7 /* MainTabView.swift in Sources */,
 				4DC5EB022B6FD3430006A83C /* Match.swift in Sources */,
+				4DE9526E2BB078FA00AFD01E /* LocalTennisManager.swift in Sources */,
 				4DC5EB092B6FD37E0006A83C /* MatchView.swift in Sources */,
 				4DC5EB002B6FD3430006A83C /* Utils.swift in Sources */,
 				4DA6CAD72BA51195001FF89D /* MatchScoreView.swift in Sources */,
