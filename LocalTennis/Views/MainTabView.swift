@@ -10,8 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     @State private var players = Player.examplePlayers
     @State private var selectedTab = 0
-    @State private var isShowingNewMatchSheet: Bool = false
-    @State private var isShowingCurrentLiveMatchSheet: Bool = false
+    @State private var isShowingMatchSheet: Bool = false
     @StateObject private var localTennisManager = LocalTennisManager()
     
     var body: some View {
@@ -36,22 +35,13 @@ struct MainTabView: View {
             .onChange(of: selectedTab) { oldValue, newValue in
                 selectedTab = newValue == 1 ? oldValue: newValue
             }
-            .sheet(isPresented: $isShowingNewMatchSheet, content: {
-                NewMatchView(players: $players, isPresented: $isShowingNewMatchSheet)
-            })
-
-            .onChange(of: localTennisManager.isMatchOngoing, { oldValue, newValue in
-                isShowingCurrentLiveMatchSheet = newValue
-            })
-            .fullScreenCover(isPresented: $isShowingCurrentLiveMatchSheet, content: {
-                if (localTennisManager.isMatchOngoing) {
-                    MatchView(match: localTennisManager.currentOngoingMatch!)
-                }
+            .fullScreenCover(isPresented: $isShowingMatchSheet, content: {
+                MatchSheetView(players: $players, isPresented: $isShowingMatchSheet)
             })
             .tint(.black)
             
             Button(action: {
-                isShowingNewMatchSheet = true
+                isShowingMatchSheet = true
             }, label: {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
