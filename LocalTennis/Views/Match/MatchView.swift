@@ -20,6 +20,8 @@ struct MatchView: View {
             MatchActionsView(match: match)
             Spacer()
         }
+        .padding()
+        .navigationTitle("Ongoing match")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
