@@ -7,12 +7,12 @@
 
 import Foundation
 
-class Match: ObservableObject, Identifiable {
+class Match: ObservableObject, Identifiable, Codable {
     let playerHome: String
     let playerAway: String
     let mode: Mode
     
-    enum Mode: Int {
+    enum Mode: Int, Codable {
         case bestOfThree = 3
         case bestOfFive = 5
     }
@@ -46,6 +46,38 @@ class Match: ObservableObject, Identifiable {
         self.sets = sets
         self.currentSet = nil
         self.winner = winner
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.playerHome = try container.decode(String.self, forKey: .playerHome)
+        self.playerAway = try container.decode(String.self, forKey: .playerAway)
+        self.mode = try container.decode(Mode.self, forKey: .mode)
+        self.sets = try container.decode([Set].self, forKey: .sets)
+        self.currentSet = try container.decode(Set?.self, forKey: .currentSet)
+        self.winner = try container.decode(PlayerSide?.self, forKey: .winner)
+    }
+}
+
+extension Match {
+    enum CodingKeys: CodingKey {
+        case playerHome
+        case playerAway
+        case mode
+        case sets
+        case currentSet
+        case winner
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(playerHome, forKey: .playerHome)
+        try container.encode(playerAway, forKey: .playerAway)
+        try container.encode(mode, forKey: .mode)
+        try container.encode(sets, forKey: .sets)
+        try container.encode(currentSet, forKey: .currentSet)
+        try container.encode(winner, forKey: .winner)
     }
 }
 

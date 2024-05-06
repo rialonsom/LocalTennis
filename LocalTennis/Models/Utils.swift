@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PlayerSide {
+enum PlayerSide: Codable {
     case playerHome
     case playerAway
     
