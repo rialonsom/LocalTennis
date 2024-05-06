@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: () -> Void
+    
     var body: some View {
         MainTabView()
+            .onChange(of: scenePhase, { oldValue, newValue in
+                if (newValue == .inactive) {
+                    saveAction()
+                }
+            })
     }
 }
 
 #Preview {
-    ContentView()
+    let localTennisManager = LocalTennisManager()
+    localTennisManager.matches = Match.exampleHistoryMatches
+    localTennisManager.players = Player.examplePlayers
+    
+    return ContentView(saveAction: {})
+        .environmentObject(localTennisManager)
 }
