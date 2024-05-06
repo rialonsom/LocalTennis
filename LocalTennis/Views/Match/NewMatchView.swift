@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NewMatchView: View {
-    @Binding var players: [Player]
     @Binding var isPresented: Bool
     @EnvironmentObject var localTennisManager: LocalTennisManager
     @State private var selectedPlayerHome: Player = Player.examplePlayers[0]
@@ -23,6 +22,8 @@ struct NewMatchView: View {
     }
     
     var body: some View {
+        let players = localTennisManager.players
+        
         List {
             // Player home
             Button(action: {
@@ -115,7 +116,6 @@ struct NewMatchView: View {
 #Preview {
     NavigationStack {
         NewMatchView(
-            players: .constant(Player.examplePlayers),
             isPresented: .constant(true)
         )
     }

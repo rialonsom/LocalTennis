@@ -27,7 +27,7 @@ struct MatchView: View {
                 Button(action: {
                     withAnimation {
                         isPresented.toggle()
-                        localTennisManager.removeOngoingMatch()
+                        localTennisManager.saveAndRemoveOngoingMatch()
                     }
                 }, label: {
                     Text("Done")

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct PlayersView: View {
-    @Binding var players: [Player]
     @State private var isShowingNewPlayerSheet = false
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
+        let players = localTennisManager.players
+        
         NavigationStack {
             List {
                 ForEach(players) { player in
@@ -27,12 +29,16 @@ struct PlayersView: View {
                 })
             }
             .sheet(isPresented: $isShowingNewPlayerSheet, content: {
-                NewPlayerSheetView(isPresented: $isShowingNewPlayerSheet, players: $players)
+                NewPlayerSheetView(isPresented: $isShowingNewPlayerSheet)
             })
         }
     }
 }
 
 #Preview {
-    PlayersView(players: .constant(Player.examplePlayers))
+    let localTennisManager = LocalTennisManager()
+    localTennisManager.players = Player.examplePlayers
+    
+    return PlayersView()
+        .environmentObject(localTennisManager)
 }

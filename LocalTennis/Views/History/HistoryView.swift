@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @Binding var players: [Player]
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(Match.exampleHistoryMatches) { match in
+                ForEach(localTennisManager.matches) { match in
                     MatchScoreView(match: match)
                 }
             }
@@ -24,5 +24,9 @@ struct HistoryView: View {
 }
 
 #Preview {
-    HistoryView(players: .constant(Player.examplePlayers))
+    let localTennisManager = LocalTennisManager()
+    localTennisManager.matches = Match.exampleHistoryMatches
+    
+    return HistoryView()
+        .environmentObject(localTennisManager)
 }

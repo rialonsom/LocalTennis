@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NewPlayerSheetView: View {
     @Binding var isPresented: Bool
-    @Binding var players: [Player]
     @State private var name: String = ""
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
         NavigationStack {
@@ -29,7 +29,7 @@ struct NewPlayerSheetView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        players.append(Player(name: name))
+                        localTennisManager.players.insert(Player(name: name), at: 0)
                         isPresented.toggle()
                     }, label: {
                         Text("Create")
@@ -41,8 +41,6 @@ struct NewPlayerSheetView: View {
 }
 
 #Preview {
-    NewPlayerSheetView(
-        isPresented: .constant(true),
-        players: .constant(Player.examplePlayers)
-    )
+    NewPlayerSheetView(isPresented: .constant(true))
+        .environmentObject(LocalTennisManager())
 }
