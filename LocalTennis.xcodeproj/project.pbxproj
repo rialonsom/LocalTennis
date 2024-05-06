@@ -13,6 +13,7 @@
 		4D36E7262BA5F2D300187DA7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7252BA5F2D300187DA7 /* HistoryView.swift */; };
 		4D36E7282BA5F2F000187DA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7272BA5F2F000187DA7 /* PlayersView.swift */; };
 		4D36E72A2BA5F4D700187DA7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7292BA5F4D700187DA7 /* MainTabView.swift */; };
+		4D51A1202BE7101F0080CDC5 /* LocalTennisStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51A11F2BE7101F0080CDC5 /* LocalTennisStore.swift */; };
 		4DA6CAD72BA51195001FF89D /* MatchScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */; };
 		4DA6CAD92BA52378001FF89D /* MatchActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD82BA52378001FF89D /* MatchActionsView.swift */; };
 		4DC5EAED2B6FD31E0006A83C /* LocalTennisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */; };
@@ -35,6 +36,7 @@
 		4D36E7252BA5F2D300187DA7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		4D36E7272BA5F2F000187DA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		4D36E7292BA5F4D700187DA7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		4D51A11F2BE7101F0080CDC5 /* LocalTennisStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisStore.swift; sourceTree = "<group>"; };
 		4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreView.swift; sourceTree = "<group>"; };
 		4DA6CAD82BA52378001FF89D /* MatchActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchActionsView.swift; sourceTree = "<group>"; };
 		4DC5EAE92B6FD31E0006A83C /* LocalTennis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTennis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,14 @@
 			path = Players;
 			sourceTree = "<group>";
 		};
+		4D51A11E2BE7100E0080CDC5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D51A11F2BE7101F0080CDC5 /* LocalTennisStore.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		4DC5EAE02B6FD31E0006A83C = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		4DC5EAEB2B6FD31E0006A83C /* LocalTennis */ = {
 			isa = PBXGroup;
 			children = (
+				4D51A11E2BE7100E0080CDC5 /* Data */,
 				4DC5EAFA2B6FD3350006A83C /* Models */,
 				4DC5EB072B6FD36D0006A83C /* Views */,
 				4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */,
@@ -238,6 +249,7 @@
 				4DC5EB002B6FD3430006A83C /* Utils.swift in Sources */,
 				4DA6CAD72BA51195001FF89D /* MatchScoreView.swift in Sources */,
 				4D0FDF8D2BA7510A0034351C /* NewPlayerSheetView.swift in Sources */,
+				4D51A1202BE7101F0080CDC5 /* LocalTennisStore.swift in Sources */,
 				4D36E7282BA5F2F000187DA7 /* PlayersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
