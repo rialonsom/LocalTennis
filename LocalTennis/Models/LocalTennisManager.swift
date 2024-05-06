@@ -8,6 +8,8 @@
 import Foundation
 
 class LocalTennisManager: ObservableObject {
+    @Published var matches: [Match] = []
+    @Published var players: [Player] = []
     @Published var currentOngoingMatch: Match? = nil
     
     var isMatchOngoing: Bool {
@@ -18,7 +20,25 @@ class LocalTennisManager: ObservableObject {
         self.currentOngoingMatch = Match(playerHome: playerHome, playerAway: playerAway, mode: mode, currentSet: nil)
     }
     
-    func removeOngoingMatch() -> Void {
+    func saveAndRemoveOngoingMatch() -> Void {
+        if (self.currentOngoingMatch != nil) {
+            self.matches.insert(self.currentOngoingMatch!, at: 0)
+        }
         self.currentOngoingMatch = nil
     }
+    
+    func loadData() async throws -> Void {
+        let retrievedMatches = try await LocalTennisStore.loadMatches()
+        let retrievedPlayers = try await LocalTennisStore.loadPlayers()
+        await MainActor.run {
+            matches = retrievedMatches
+            players = retrievedPlayers
+        }
+    }
+    
+    func saveData() async throws -> Void {
+        try await LocalTennisStore.saveMatches(matches: self.matches)
+        try await LocalTennisStore.savePlayers(players: self.players)
+    }
 }
+
