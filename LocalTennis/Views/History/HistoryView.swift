@@ -24,8 +24,9 @@ struct HistoryView: View {
 }
 
 #Preview {
-    let localTennisManager = LocalTennisManager()
-    localTennisManager.matches = Match.exampleHistoryMatches
+    let localTennisManager = LocalTennisManager(
+        matches: Match.exampleHistoryMatches
+    )
     
     return HistoryView()
         .environmentObject(localTennisManager)

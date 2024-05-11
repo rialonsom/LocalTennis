@@ -55,9 +55,10 @@ struct MainTabView: View {
 
 
 #Preview {
-    let localTennisManager = LocalTennisManager()
-    localTennisManager.matches = Match.exampleHistoryMatches
-    localTennisManager.players = Player.examplePlayers
+    let localTennisManager = LocalTennisManager(
+        matches: Match.exampleHistoryMatches,
+        players: Player.examplePlayers
+    )
     
     return MainTabView()
         .environmentObject(localTennisManager)

@@ -7,7 +7,8 @@
 
 import Foundation
 
-class Match: ObservableObject, Identifiable, Codable {
+class Match: ObservableObject, Identifiable, Codable, Equatable {
+    let id: UUID = UUID()
     let playerHome: String
     let playerAway: String
     let mode: Mode
@@ -78,6 +79,12 @@ extension Match {
         try container.encode(sets, forKey: .sets)
         try container.encode(currentSet, forKey: .currentSet)
         try container.encode(winner, forKey: .winner)
+    }
+}
+
+extension Match {
+    static func == (lhs: Match, rhs: Match) -> Bool {
+        lhs.id == rhs.id
     }
 }
 

@@ -36,8 +36,9 @@ struct PlayersView: View {
 }
 
 #Preview {
-    let localTennisManager = LocalTennisManager()
-    localTennisManager.players = Player.examplePlayers
+    let localTennisManager = LocalTennisManager(
+        players: Player.examplePlayers
+    )
     
     return PlayersView()
         .environmentObject(localTennisManager)

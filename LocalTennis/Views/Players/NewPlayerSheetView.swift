@@ -29,7 +29,7 @@ struct NewPlayerSheetView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        localTennisManager.players.insert(Player(name: name), at: 0)
+                        localTennisManager.addPlayer(player: Player(name: name))
                         isPresented.toggle()
                     }, label: {
                         Text("Create")
