@@ -15,6 +15,13 @@ struct HistoryView: View {
             List {
                 ForEach(localTennisManager.matches) { match in
                     MatchScoreView(match: match)
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                localTennisManager.removeMatch(match: match)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
                 }
             }
             .listStyle(.plain)

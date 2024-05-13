@@ -18,6 +18,13 @@ struct PlayersView: View {
             List {
                 ForEach(players) { player in
                     Text("\(player.name)")
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                localTennisManager.removePlayer(player: player)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
                 }
             }
             .navigationTitle("Players")
