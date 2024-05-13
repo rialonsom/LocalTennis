@@ -36,7 +36,6 @@ struct MainTabView: View {
             .fullScreenCover(isPresented: $isShowingMatchSheet, content: {
                 MatchSheetView(isPresented: $isShowingMatchSheet)
             })
-            .tint(.black)
             
             Button(action: {
                 isShowingMatchSheet = true
