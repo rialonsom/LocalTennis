@@ -10,8 +10,8 @@ import SwiftUI
 struct NewMatchView: View {
     @Binding var isPresented: Bool
     @EnvironmentObject var localTennisManager: LocalTennisManager
-    @State private var selectedPlayerHome: Player = Player.examplePlayers[0]
-    @State private var selectedPlayerAway: Player = Player.examplePlayers[1]
+    @State private var selectedPlayerHome: Player = Player(name: "")
+    @State private var selectedPlayerAway: Player = Player(name: "")
     @State private var selectedMode: Match.Mode = .bestOfThree
     
     @State private var focusedField: FocusedField? = nil
@@ -110,14 +110,22 @@ struct NewMatchView: View {
                 })
             }
         }
+        .onAppear {
+            selectedPlayerHome = players[0]
+            selectedPlayerAway = players[1]
+        }
     }
 }
 
 #Preview {
-    NavigationStack {
+    let localTennisManager = LocalTennisManager(
+        players: Player.examplePlayers
+    )
+    
+    return NavigationStack {
         NewMatchView(
             isPresented: .constant(true)
         )
     }
-    .environmentObject(LocalTennisManager())
+    .environmentObject(localTennisManager)
 }
