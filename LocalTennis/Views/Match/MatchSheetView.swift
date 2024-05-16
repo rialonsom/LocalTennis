@@ -31,8 +31,12 @@ struct MatchSheetView: View {
 }
 
 #Preview {
-    MatchSheetView(
+    let localTennisManager = LocalTennisManager(
+        currentOngoingMatch: Match.exampleMatch
+    )
+    
+    return MatchSheetView(
         isPresented: .constant(true)
     )
-    .environmentObject(LocalTennisManager())
+    .environmentObject(localTennisManager)
 }
