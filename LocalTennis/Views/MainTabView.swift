@@ -12,7 +12,6 @@ struct MainTabView: View {
     @State private var isShowingMatchSheet: Bool = false
     @State private var isShowingNewMatchAlert: Bool = false
     @EnvironmentObject var localTennisManager: LocalTennisManager
-    private let newMatchAlertTitle = "You need to create at least two players before playing a match."
     
     var body: some View {
         let newMatchEnabled = localTennisManager.players.count >= 2
@@ -59,12 +58,12 @@ struct MainTabView: View {
                     isShowingNewMatchAlert = true
                 }
             }
-            .alert(newMatchAlertTitle, isPresented: $isShowingNewMatchAlert) {
-                Button(action: {
-                    isShowingNewMatchAlert = false
-                }, label: {
+            .alert("Can't start a new match", isPresented: $isShowingNewMatchAlert) {
+                Button(role: .cancel, action: {}, label: {
                     Text("Ok")
                 })
+            } message: {
+                Text("You need to create at least two players before playing a match.")
             }
         }
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MatchActionsView: View {
     @ObservedObject var match: Match
+    @State private var isShowingEndingEarlyAlert: Bool = false
     
     var body: some View {
         let isLive = match.isLive
@@ -24,7 +25,7 @@ struct MatchActionsView: View {
             }, label: {
                 Spacer()
                 Text("Point to \(playerHome)")
-                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .frame(height: 100)
                 Spacer()
             })
             .buttonStyle(.bordered)
@@ -37,7 +38,7 @@ struct MatchActionsView: View {
             }, label: {
                 Spacer()
                 Text("Point to \(playerAway)")
-                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .frame(height: 100)
                 Spacer()
             })
             .buttonStyle(.bordered)
@@ -51,7 +52,7 @@ struct MatchActionsView: View {
         }, label: {
             Spacer()
             Text("Start")
-                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                .frame(height: 100)
             Spacer()
         })
         .buttonStyle(.bordered)
@@ -60,16 +61,33 @@ struct MatchActionsView: View {
         
         // End match
         Button(action: {
-            match.end(matchWinner: .playerHome)
+            isShowingEndingEarlyAlert = true
         }, label: {
             Spacer()
             Text("End")
-                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                .frame(height: 100)
             Spacer()
         })
         .buttonStyle(.bordered)
         .tint(.red)
         .disabled(!isLive)
+        .alert("Early ending", isPresented: $isShowingEndingEarlyAlert) {
+            Button(action: {
+                match.end(matchWinner: .playerHome)
+            }, label: {
+                Text(match.playerHome)
+            })
+            Button(action: {
+                match.end(matchWinner: .playerAway)
+            }, label: {
+                Text(match.playerAway)
+            })
+            Button(role: .cancel, action: {}, label: {
+                Text("Cancel")
+            })
+        } message: {
+            Text("Select which player should be declared winner.")
+        }
     }
 }
 
