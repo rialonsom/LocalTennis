@@ -46,8 +46,10 @@ struct NewMatchView: View {
             if (focusedField == .playerHome) {
                 Picker("Player home", selection: $selectedPlayerHome) {
                     ForEach(players) { player in
-                        Text(player.name)
-                            .tag(player)
+                        if (player != selectedPlayerAway) {
+                            Text(player.name)
+                                .tag(player)
+                        }
                     }
                 }
                 .pickerStyle(.wheel)
@@ -73,8 +75,10 @@ struct NewMatchView: View {
             if (focusedField == .playerAway) {
                 Picker("Player away", selection: $selectedPlayerAway) {
                     ForEach(players) { player in
-                        Text(player.name)
-                            .tag(player)
+                        if (player != selectedPlayerHome) {
+                            Text(player.name)
+                                .tag(player)
+                        }
                     }
                 }
                 .pickerStyle(.wheel)
