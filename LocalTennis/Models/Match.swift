@@ -210,8 +210,8 @@ extension Match {
             playerAway: Player(name: "Rodrigo"),
             mode: .bestOfThree,
             sets: [
-                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
-                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5)
+                Set(id: 1, gamesPlayerHome: 4, gamesPlayerAway: 6),
+                Set(id: 2, gamesPlayerHome: 5, gamesPlayerAway: 7)
             ],
             winner: .playerAway
         ),
