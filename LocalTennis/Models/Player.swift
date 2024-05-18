@@ -21,6 +21,6 @@ extension Player {
     static let examplePlayers = [
         Player(name: "Rodrigo"),
         Player(name: "Juan"),
-        Player(name: "José"),
+        Player(name: "Pedro"),
     ]
 }

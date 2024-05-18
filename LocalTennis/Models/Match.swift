@@ -147,16 +147,16 @@ extension Match {
 
 extension Match {
     static let exampleMatchNew = Match(
-        playerHome: Player(name: "Carlos Alcaraz"),
-        playerAway: Player(name: "Novak Djokovic"),
+        playerHome: Player(name: "Rodrigo"),
+        playerAway: Player(name: "Pedro"),
         mode: .bestOfThree,
         sets: [],
         currentSet: nil
     )
     
     static let exampleMatch = Match(
-        playerHome: Player(name: "Carlos Alcaraz"),
-        playerAway: Player(name: "Novak Djokovic"),
+        playerHome: Player(name: "Juan"),
+        playerAway: Player(name: "Rodrigo"),
         mode: .bestOfThree,
         sets: [
             Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -171,8 +171,8 @@ extension Match {
     )
     
     static let exampleMatchTieBreak = Match(
-        playerHome: Player(name: "Carlos Alcaraz"),
-        playerAway: Player(name: "Novak Djokovic"),
+        playerHome: Player(name: "Pedro"),
+        playerAway: Player(name: "Juan"),
         mode: .bestOfFive,
         sets: [
             Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
@@ -206,17 +206,17 @@ extension Match {
             winner: .playerHome
         ),
         Match(
-            playerHome: Player(name: "José"),
+            playerHome: Player(name: "Pedro"),
             playerAway: Player(name: "Rodrigo"),
             mode: .bestOfThree,
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
                 Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5)
             ],
-            winner: .playerHome
+            winner: .playerAway
         ),
         Match(
-            playerHome: Player(name: "Daniel"),
+            playerHome: Player(name: "Pedro"),
             playerAway: Player(name: "Juan"),
             mode: .bestOfFive,
             sets: [
