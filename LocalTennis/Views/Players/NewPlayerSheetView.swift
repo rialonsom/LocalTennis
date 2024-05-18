@@ -11,6 +11,7 @@ struct NewPlayerSheetView: View {
     @Binding var isPresented: Bool
     @State private var name: String = ""
     @EnvironmentObject var localTennisManager: LocalTennisManager
+    @State private var isShowingValidationAlert = false
     
     var body: some View {
         NavigationStack {
@@ -29,18 +30,46 @@ struct NewPlayerSheetView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        localTennisManager.addPlayer(player: Player(name: name))
-                        isPresented.toggle()
+                        if (validatePlayerName(name: name)) {
+                            localTennisManager.addPlayer(player: Player(name: name))
+                            isPresented.toggle()
+                        } else {
+                            isShowingValidationAlert = true
+                        }
                     }, label: {
                         Text("Create")
                     })
                 }
             }
         }
+        .alert("Can't create player", isPresented: $isShowingValidationAlert) {
+            Button(action: {}, label: {
+                Text("Ok")
+            })
+        } message: {
+            Text("Player name can't be empty or the same as another player.")
+        }
+
+    }
+}
+
+extension NewPlayerSheetView {
+    private func validatePlayerName(name: String) -> Bool {
+        if (name.isEmpty) {
+            return false
+        }
+        
+        return !localTennisManager.players.contains { player in
+            player.name == name
+        }
     }
 }
 
 #Preview {
-    NewPlayerSheetView(isPresented: .constant(true))
-        .environmentObject(LocalTennisManager())
+    let localTennisManager = LocalTennisManager(
+        players: Player.examplePlayers
+    )
+    
+    return NewPlayerSheetView(isPresented: .constant(true))
+        .environmentObject(localTennisManager)
 }
