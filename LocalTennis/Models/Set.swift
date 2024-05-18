@@ -24,6 +24,26 @@ struct Set: Identifiable, Codable {
         currentGame != nil
     }
     
+    var winner: PlayerSide? {
+        if (gamesPlayerHome > 6) {
+            return .playerHome
+        }
+        
+        if (gamesPlayerAway > 6) {
+            return .playerAway
+        }
+        
+        if (gamesPlayerHome == 6 && gamesPlayerAway < 5) {
+            return .playerHome
+        }
+        
+        if (gamesPlayerAway == 6 && gamesPlayerHome < 5) {
+            return .playerAway
+        }
+        
+        return nil
+    }
+    
 }
 
 extension Set {
