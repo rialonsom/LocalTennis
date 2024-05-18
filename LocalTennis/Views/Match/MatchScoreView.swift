@@ -17,6 +17,7 @@ struct MatchScoreView: View {
         
         VStack {
             HStack {
+                // Players
                 Grid(alignment: .leading) {
                     GridRow {
                         Text(match.playerHome)
@@ -41,11 +42,14 @@ struct MatchScoreView: View {
 
                 Spacer()
 
+                // Scores
                 Grid(alignment: .center) {
+                    // Player home
                     GridRow {
                         ForEach(match.sets) { set in
                             Text("\(set.gamesPlayerHome)")
                                 .bold()
+                                .opacity(set.winner != nil && set.winner == .playerAway ? 0.4 : 1)
                             if (set.hasTieBreak) {
                                 Text("(\(set.tieBreakPointsPlayerHome))")
                             }
@@ -62,12 +66,13 @@ struct MatchScoreView: View {
                             }
                         }
                     }
-                    .opacity(winner != nil && winner == .playerAway ? 0.4 : 1)
 
+                    // Player away
                     GridRow {
                         ForEach(match.sets) { set in
                             Text("\(set.gamesPlayerAway)")
                                 .bold()
+                                .opacity(set.winner != nil && set.winner == .playerHome ? 0.4 : 1)
                             if (set.hasTieBreak) {
                                 Text("(\(set.tieBreakPointsPlayerAway))")
                             }
@@ -84,7 +89,6 @@ struct MatchScoreView: View {
                             }
                         }
                     }
-                    .opacity(winner != nil && winner == .playerHome ? 0.4 : 1)
                 }
             }
         }
@@ -93,4 +97,8 @@ struct MatchScoreView: View {
 
 #Preview {
     MatchScoreView(match: Match.exampleMatch)
+}
+
+#Preview {
+    MatchScoreView(match: Match.exampleHistoryMatches[2])
 }
