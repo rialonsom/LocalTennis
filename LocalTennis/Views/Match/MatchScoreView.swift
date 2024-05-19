@@ -18,35 +18,37 @@ struct MatchScoreView: View {
         let winner = match.winner
         
         VStack {
-            HStack {
+            HStack(alignment: .center) {
                 // Players
-                Grid(alignment: .leading) {
+                Grid(alignment: .leading, verticalSpacing: 4) {
                     ForEach(sides) { side in
                         GridRow {
-                            Text(getMatchPlayerName(match: match, side: side))
-                            if (currentGame?.currentServe == side) {
-                                Image(systemName: "circle.fill")
-                                    .resizable()
-                                    .frame(width: 8, height: 8)
+                            HStack {
+                                Text(getMatchPlayerName(match: match, side: side))
+                                if (currentGame?.currentServe == side) {
+                                    Image(systemName: "circle.fill")
+                                        .resizable()
+                                        .foregroundStyle(.green)
+                                        .frame(width: 8, height: 8)
+                                }
                             }
                         }
                         .opacity(winner != nil && winner != side ? 0.4 : 1)
                     }
                 }
-
+                
                 Spacer()
-
+                
                 // Scores
-                Grid(alignment: .center) {
+                Grid(alignment: .trailing, verticalSpacing: 4) {
                     ForEach(sides) { side in
-                        GridRow {
+                        GridRow(alignment: .bottom) {
                             ForEach(match.sets) { set in
-                                Text("\(getSetGames(set: set, side: side))")
-                                    .bold()
-                                    .opacity(set.winner != nil && set.winner != side ? 0.4 : 1)
-                                if (set.hasTieBreak) {
-                                    Text("(\(getSetTieBreakPoints(set: set, side: side)))")
-                                }
+                                MatchSetScoreView(
+                                    games: getSetGames(set: set, side: side),
+                                    tiebreakPoints: set.hasTieBreak ? getSetTieBreakPoints(set: set, side: side) : nil
+                                )
+                                .opacity(set.winner != nil && set.winner != side ? 0.4 : 1)
                             }
                             if (currentSet != nil) {
                                 Text("\(getSetGames(set: match.currentSet!, side: side))")
