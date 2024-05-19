@@ -7,7 +7,11 @@
 
 import Foundation
 
-enum PlayerSide: Codable {
+enum PlayerSide: Codable, Identifiable {
+    var id: Self {
+        return self
+    }
+    
     case playerHome
     case playerAway
     
