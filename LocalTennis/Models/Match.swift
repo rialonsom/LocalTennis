@@ -182,7 +182,7 @@ extension Match {
                 gamesPlayerHome: 6,
                 gamesPlayerAway: 7,
                 hasTieBreak: true,
-                tieBreakPointsPlayerHome: 4,
+                tieBreakPointsPlayerHome: 5,
                 tieBreakPointsPlayerAway: 7
                ),
         ],
@@ -190,7 +190,7 @@ extension Match {
             id: 5,
             gamesPlayerHome: 6,
             gamesPlayerAway: 6,
-            currentGame: Game(pointsPlayerHome: .forty, pointsPlayerAway: .forty, serve: .playerAway)
+            currentGame: Game(pointsPlayerHome: .tieBreakPoint(5), pointsPlayerAway: .tieBreakPoint(6), serve: .playerAway)
         )
     )
     
