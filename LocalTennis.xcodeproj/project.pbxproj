@@ -27,8 +27,46 @@
 		4DC5EB042B6FD3430006A83C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFF2B6FD3430006A83C /* Game.swift */; };
 		4DC5EB092B6FD37E0006A83C /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EB082B6FD37E0006A83C /* MatchView.swift */; };
 		4DE9526E2BB078FA00AFD01E /* LocalTennisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */; };
+		4DECB3FD2C027A0000C1D7C0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DECB3FC2C027A0000C1D7C0 /* WidgetKit.framework */; };
+		4DECB3FF2C027A0000C1D7C0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DECB3FE2C027A0000C1D7C0 /* SwiftUI.framework */; };
+		4DECB4022C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4012C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift */; };
+		4DECB4042C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4032C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift */; };
+		4DECB4062C027A0000C1D7C0 /* LocalTennisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4052C027A0000C1D7C0 /* LocalTennisWidget.swift */; };
+		4DECB4082C027A0100C1D7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DECB4072C027A0100C1D7C0 /* Assets.xcassets */; };
+		4DECB40C2C027A0100C1D7C0 /* LocalTennisWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4DECB3FA2C027A0000C1D7C0 /* LocalTennisWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4DECB4112C0281FC00C1D7C0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFD2B6FD3430006A83C /* Match.swift */; };
+		4DECB4122C02820C00C1D7C0 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFE2B6FD3430006A83C /* Set.swift */; };
+		4DECB4132C02820F00C1D7C0 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFF2B6FD3430006A83C /* Game.swift */; };
+		4DECB4142C02821400C1D7C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFB2B6FD3420006A83C /* Utils.swift */; };
+		4DECB4152C02822A00C1D7C0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFC2B6FD3430006A83C /* Player.swift */; };
+		4DECB4162C02832200C1D7C0 /* MatchScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */; };
+		4DECB4172C02832500C1D7C0 /* MatchSetScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D436C112BF8491500507192 /* MatchSetScoreView.swift */; };
 		4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D7332B6FD58A005F3FFF /* ContentView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DECB40A2C027A0100C1D7C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DC5EAE12B6FD31E0006A83C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DECB3F92C027A0000C1D7C0;
+			remoteInfo = LocalTennisWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4DECB40D2C027A0100C1D7C0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4DECB40C2C027A0100C1D7C0 /* LocalTennisWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D0FDF8C2BA7510A0034351C /* NewPlayerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlayerSheetView.swift; sourceTree = "<group>"; };
@@ -52,6 +90,14 @@
 		4DC5EAFF2B6FD3430006A83C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4DC5EB082B6FD37E0006A83C /* MatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisManager.swift; sourceTree = "<group>"; };
+		4DECB3FA2C027A0000C1D7C0 /* LocalTennisWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LocalTennisWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DECB3FC2C027A0000C1D7C0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4DECB3FE2C027A0000C1D7C0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4DECB4012C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidgetBundle.swift; sourceTree = "<group>"; };
+		4DECB4032C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		4DECB4052C027A0000C1D7C0 /* LocalTennisWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidget.swift; sourceTree = "<group>"; };
+		4DECB4072C027A0100C1D7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DECB4092C027A0100C1D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DF2D7332B6FD58A005F3FFF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +106,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DECB3F72C027A0000C1D7C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DECB3FF2C027A0000C1D7C0 /* SwiftUI.framework in Frameworks */,
+				4DECB3FD2C027A0000C1D7C0 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				4DC5EAEB2B6FD31E0006A83C /* LocalTennis */,
+				4DECB4002C027A0000C1D7C0 /* LocalTennisWidget */,
+				4DECB3FB2C027A0000C1D7C0 /* Frameworks */,
 				4DC5EAEA2B6FD31E0006A83C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4DC5EAE92B6FD31E0006A83C /* LocalTennis.app */,
+				4DECB3FA2C027A0000C1D7C0 /* LocalTennisWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +224,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4DECB3FB2C027A0000C1D7C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DECB3FC2C027A0000C1D7C0 /* WidgetKit.framework */,
+				4DECB3FE2C027A0000C1D7C0 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DECB4002C027A0000C1D7C0 /* LocalTennisWidget */ = {
+			isa = PBXGroup;
+			children = (
+				4DECB4012C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift */,
+				4DECB4032C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift */,
+				4DECB4052C027A0000C1D7C0 /* LocalTennisWidget.swift */,
+				4DECB4072C027A0100C1D7C0 /* Assets.xcassets */,
+				4DECB4092C027A0100C1D7C0 /* Info.plist */,
+			);
+			path = LocalTennisWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,15 +255,34 @@
 				4DC5EAE52B6FD31E0006A83C /* Sources */,
 				4DC5EAE62B6FD31E0006A83C /* Frameworks */,
 				4DC5EAE72B6FD31E0006A83C /* Resources */,
+				4DECB40D2C027A0100C1D7C0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4DECB40B2C027A0100C1D7C0 /* PBXTargetDependency */,
 			);
 			name = LocalTennis;
 			productName = LocalTennis;
 			productReference = 4DC5EAE92B6FD31E0006A83C /* LocalTennis.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4DECB3F92C027A0000C1D7C0 /* LocalTennisWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DECB4102C027A0100C1D7C0 /* Build configuration list for PBXNativeTarget "LocalTennisWidgetExtension" */;
+			buildPhases = (
+				4DECB3F62C027A0000C1D7C0 /* Sources */,
+				4DECB3F72C027A0000C1D7C0 /* Frameworks */,
+				4DECB3F82C027A0000C1D7C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalTennisWidgetExtension;
+			productName = LocalTennisWidgetExtension;
+			productReference = 4DECB3FA2C027A0000C1D7C0 /* LocalTennisWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -197,6 +295,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					4DC5EAE82B6FD31E0006A83C = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					4DECB3F92C027A0000C1D7C0 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -215,6 +316,7 @@
 			projectRoot = "";
 			targets = (
 				4DC5EAE82B6FD31E0006A83C /* LocalTennis */,
+				4DECB3F92C027A0000C1D7C0 /* LocalTennisWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -226,6 +328,14 @@
 			files = (
 				4DC5EAF42B6FD31F0006A83C /* Preview Assets.xcassets in Resources */,
 				4DC5EAF12B6FD31F0006A83C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DECB3F82C027A0000C1D7C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DECB4082C027A0100C1D7C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +368,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DECB3F62C027A0000C1D7C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DECB4172C02832500C1D7C0 /* MatchSetScoreView.swift in Sources */,
+				4DECB4122C02820C00C1D7C0 /* Set.swift in Sources */,
+				4DECB4132C02820F00C1D7C0 /* Game.swift in Sources */,
+				4DECB4062C027A0000C1D7C0 /* LocalTennisWidget.swift in Sources */,
+				4DECB4142C02821400C1D7C0 /* Utils.swift in Sources */,
+				4DECB4152C02822A00C1D7C0 /* Player.swift in Sources */,
+				4DECB4162C02832200C1D7C0 /* MatchScoreView.swift in Sources */,
+				4DECB4022C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift in Sources */,
+				4DECB4042C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift in Sources */,
+				4DECB4112C0281FC00C1D7C0 /* Match.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DECB40B2C027A0100C1D7C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DECB3F92C027A0000C1D7C0 /* LocalTennisWidgetExtension */;
+			targetProxy = 4DECB40A2C027A0100C1D7C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4DC5EAF52B6FD31F0006A83C /* Debug */ = {
@@ -383,6 +518,7 @@
 		4DC5EAF82B6FD31F0006A83C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -391,6 +527,7 @@
 				DEVELOPMENT_TEAM = RQLRTG48A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -412,6 +549,7 @@
 		4DC5EAF92B6FD31F0006A83C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -420,6 +558,7 @@
 				DEVELOPMENT_TEAM = RQLRTG48A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +571,60 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rialonso.LocalTennis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4DECB40E2C027A0100C1D7C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQLRTG48A3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalTennisWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LocalTennisWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rialonso.LocalTennis.LocalTennisWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DECB40F2C027A0100C1D7C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQLRTG48A3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalTennisWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LocalTennisWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rialonso.LocalTennis.LocalTennisWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -455,6 +648,15 @@
 			buildConfigurations = (
 				4DC5EAF82B6FD31F0006A83C /* Debug */,
 				4DC5EAF92B6FD31F0006A83C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DECB4102C027A0100C1D7C0 /* Build configuration list for PBXNativeTarget "LocalTennisWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DECB40E2C027A0100C1D7C0 /* Debug */,
+				4DECB40F2C027A0100C1D7C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
