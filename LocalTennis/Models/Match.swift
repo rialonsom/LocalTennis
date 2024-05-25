@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Match: ObservableObject, Identifiable, Codable, Equatable {
+class Match: ObservableObject, Identifiable, Codable, Equatable, Hashable {
     let id: UUID = UUID()
     let playerHome: String
     let playerAway: String
@@ -85,6 +85,10 @@ extension Match {
 extension Match {
     static func == (lhs: Match, rhs: Match) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game: Codable {
+struct Game: Codable, Hashable {
     private(set) var pointsPlayerHome: Point
     private(set) var pointsPlayerAway: Point
     
@@ -31,7 +31,7 @@ struct Game: Codable {
 }
 
 extension Game {
-    enum Point: Comparable, Codable {
+    enum Point: Comparable, Codable, Hashable {
         case love
         case fifteen
         case thirty

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Set: Identifiable, Codable {
+struct Set: Identifiable, Codable, Hashable {
     let id: Int
     
     private(set) var gamesPlayerHome: Int = 0
