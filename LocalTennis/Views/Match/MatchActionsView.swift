@@ -10,6 +10,7 @@ import SwiftUI
 struct MatchActionsView: View {
     @ObservedObject var match: Match
     @State private var isShowingEndingEarlyAlert: Bool = false
+    @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
         let isLive = match.isLive
@@ -88,9 +89,24 @@ struct MatchActionsView: View {
         } message: {
             Text("Select which player should be declared winner.")
         }
+        
+        Button(action: {
+            do {
+                try localTennisManager.startLiveActivity()
+            } catch {}
+        }, label: {
+            Spacer()
+            Text("Start live activity")
+                .frame(height: 50)
+            Spacer()
+        })
+        .padding(.top)
+        .buttonStyle(.bordered)
+        .tint(.blue)
     }
 }
 
 #Preview {
     MatchActionsView(match: Match.exampleMatch)
+        .environmentObject(LocalTennisManager())
 }

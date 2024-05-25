@@ -9,15 +9,7 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct LocalTennisWidgetAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var match: Match
-    }
 
-    // Fixed non-changing properties about your activity go here!
-    var name: String
-}
 
 struct LocalTennisWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {

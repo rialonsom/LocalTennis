@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ActivityKit
 
 class LocalTennisManager: ObservableObject {
     @Published private(set) var matches: [Match] = []
@@ -60,5 +61,29 @@ extension LocalTennisManager {
             self.matches = nextMatches
             self.players = nextPlayers
         }
+    }
+}
+
+extension LocalTennisManager {
+    func startLiveActivity() throws -> Void {
+        guard ActivityAuthorizationInfo().areActivitiesEnabled else {
+            return
+        }
+        
+        guard let ongoingMatch = self.currentOngoingMatch else {
+            return
+        }
+        
+        let activityAttributes = LocalTennisWidgetAttributes(name: "Match")
+        let activityInitialState = LocalTennisWidgetAttributes.ContentState(
+            match: ongoingMatch
+        )
+        let _ = try Activity.request(
+            attributes: activityAttributes,
+            content: .init(
+                state: activityInitialState,
+                staleDate: nil
+            )
+        )
     }
 }

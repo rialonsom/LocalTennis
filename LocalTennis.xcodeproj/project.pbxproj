@@ -41,6 +41,8 @@
 		4DECB4152C02822A00C1D7C0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAFC2B6FD3430006A83C /* Player.swift */; };
 		4DECB4162C02832200C1D7C0 /* MatchScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */; };
 		4DECB4172C02832500C1D7C0 /* MatchSetScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D436C112BF8491500507192 /* MatchSetScoreView.swift */; };
+		4DECB4222C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */; };
+		4DECB4232C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */; };
 		4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D7332B6FD58A005F3FFF /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,7 @@
 		4DECB4052C027A0000C1D7C0 /* LocalTennisWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidget.swift; sourceTree = "<group>"; };
 		4DECB4072C027A0100C1D7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DECB4092C027A0100C1D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidgetAttributes.swift; sourceTree = "<group>"; };
 		4DF2D7332B6FD58A005F3FFF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,11 +184,13 @@
 		4DC5EAEB2B6FD31E0006A83C /* LocalTennis */ = {
 			isa = PBXGroup;
 			children = (
+				4DECB4202C029B2000C1D7C0 /* Shared */,
 				4D51A11E2BE7100E0080CDC5 /* Data */,
 				4DC5EAFA2B6FD3350006A83C /* Models */,
 				4DC5EB072B6FD36D0006A83C /* Views */,
-				4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */,
+				4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */,
 				4DF2D7332B6FD58A005F3FFF /* ContentView.swift */,
+				4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */,
 				4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */,
 				4DC5EAF22B6FD31F0006A83C /* Preview Content */,
 			);
@@ -208,7 +213,6 @@
 				4DC5EAFC2B6FD3430006A83C /* Player.swift */,
 				4DC5EAFE2B6FD3430006A83C /* Set.swift */,
 				4DC5EAFB2B6FD3420006A83C /* Utils.swift */,
-				4DE9526D2BB078FA00AFD01E /* LocalTennisManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +247,14 @@
 				4DECB4092C027A0100C1D7C0 /* Info.plist */,
 			);
 			path = LocalTennisWidget;
+			sourceTree = "<group>";
+		};
+		4DECB4202C029B2000C1D7C0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DC5EB012B6FD3430006A83C /* Player.swift in Sources */,
+				4DECB4222C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */,
 				4DC5EB042B6FD3430006A83C /* Game.swift in Sources */,
 				4DA6CAD92BA52378001FF89D /* MatchActionsView.swift in Sources */,
 				4DC5EB032B6FD3430006A83C /* Set.swift in Sources */,
@@ -381,6 +394,7 @@
 				4DECB4162C02832200C1D7C0 /* MatchScoreView.swift in Sources */,
 				4DECB4022C027A0000C1D7C0 /* LocalTennisWidgetBundle.swift in Sources */,
 				4DECB4042C027A0000C1D7C0 /* LocalTennisWidgetLiveActivity.swift in Sources */,
+				4DECB4232C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */,
 				4DECB4112C0281FC00C1D7C0 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +603,7 @@
 				INFOPLIST_FILE = LocalTennisWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LocalTennisWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,6 +631,7 @@
 				INFOPLIST_FILE = LocalTennisWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LocalTennisWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
