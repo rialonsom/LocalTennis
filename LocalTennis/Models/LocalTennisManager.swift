@@ -55,17 +55,10 @@ extension LocalTennisManager {
 }
 
 extension LocalTennisManager {
-    func loadData() async throws -> Void {
-        let retrievedMatches = try await LocalTennisStore.loadMatches()
-        let retrievedPlayers = try await LocalTennisStore.loadPlayers()
+    func setData(nextMatches: [Match], nextPlayers: [Player]) async -> Void {
         await MainActor.run {
-            matches = retrievedMatches
-            players = retrievedPlayers
+            self.matches = nextMatches
+            self.players = nextPlayers
         }
-    }
-    
-    func saveData() async throws -> Void {
-        try await LocalTennisStore.saveMatches(matches: self.matches)
-        try await LocalTennisStore.savePlayers(players: self.players)
     }
 }

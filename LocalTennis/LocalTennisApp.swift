@@ -16,7 +16,11 @@ struct LocalTennisApp: App {
             ContentView() {
                 Task {
                     do {
-                        try await localTennisManager.saveData()
+                        let matches = localTennisManager.matches
+                        let players = localTennisManager.players
+                        
+                        try await LocalTennisStore.saveMatches(matches: matches)
+                        try await LocalTennisStore.savePlayers(players: players)
                     } catch {
                         fatalError(error.localizedDescription)
                     }
@@ -25,7 +29,12 @@ struct LocalTennisApp: App {
             .environmentObject(localTennisManager)
             .task {
                 do {
-                    try await localTennisManager.loadData()
+                    let retrievedMatches = try await LocalTennisStore.loadMatches()
+                    let retrievedPlayers = try await LocalTennisStore.loadPlayers()
+                    await localTennisManager.setData(
+                        nextMatches: retrievedMatches,
+                        nextPlayers: retrievedPlayers
+                    )
                 } catch {
                     fatalError(error.localizedDescription)
                 }
