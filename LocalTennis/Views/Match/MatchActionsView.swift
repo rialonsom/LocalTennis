@@ -18,91 +18,99 @@ struct MatchActionsView: View {
         
         let playerHome = match.playerHome
         let playerAway = match.playerAway
-
-        HStack {
-            // Point to player home
-            Button(action: {
-                match.goToNextPoint(pointWinner: .playerHome)
-            }, label: {
-                Spacer()
-                Text("Point to \(playerHome)")
-                    .frame(height: 100)
-                Spacer()
-            })
-            .buttonStyle(.bordered)
-            .tint(.indigo)
-            .disabled(!isLive)
+        
+        VStack {
+            HStack {
+                // Point to player home
+                Button(action: {
+                    match.goToNextPoint(pointWinner: .playerHome)
+                }, label: {
+                    Spacer()
+                    Text("Point to \(playerHome)")
+                        .frame(height: 100)
+                    Spacer()
+                })
+                .buttonStyle(.bordered)
+                .tint(.indigo)
+                .disabled(!isLive)
+                
+                // Point to player away
+                Button(action: {
+                    match.goToNextPoint(pointWinner: .playerAway)
+                }, label: {
+                    Spacer()
+                    Text("Point to \(playerAway)")
+                        .frame(height: 100)
+                    Spacer()
+                })
+                .buttonStyle(.bordered)
+                .tint(.indigo)
+                .disabled(!isLive)
+            }
             
-            // Point to player away
+            // Start match
             Button(action: {
-                match.goToNextPoint(pointWinner: .playerAway)
+                match.start()
             }, label: {
                 Spacer()
-                Text("Point to \(playerAway)")
+                Text("Start")
                     .frame(height: 100)
                 Spacer()
             })
             .buttonStyle(.bordered)
-            .tint(.indigo)
+            .tint(.green)
+            .disabled(isLive || isFinished)
+            
+            // End match
+            Button(action: {
+                isShowingEndingEarlyAlert = true
+            }, label: {
+                Spacer()
+                Text("End")
+                    .frame(height: 100)
+                Spacer()
+            })
+            .buttonStyle(.bordered)
+            .tint(.red)
             .disabled(!isLive)
-        }
-        
-        // Start match
-        Button(action: {
-            match.start()
-        }, label: {
-            Spacer()
-            Text("Start")
-                .frame(height: 100)
-            Spacer()
-        })
-        .buttonStyle(.bordered)
-        .tint(.green)
-        .disabled(isLive || isFinished)
-        
-        // End match
-        Button(action: {
-            isShowingEndingEarlyAlert = true
-        }, label: {
-            Spacer()
-            Text("End")
-                .frame(height: 100)
-            Spacer()
-        })
-        .buttonStyle(.bordered)
-        .tint(.red)
-        .disabled(!isLive)
-        .alert("Early ending", isPresented: $isShowingEndingEarlyAlert) {
+            .alert("Early ending", isPresented: $isShowingEndingEarlyAlert) {
+                Button(action: {
+                    match.end(matchWinner: .playerHome)
+                }, label: {
+                    Text(match.playerHome)
+                })
+                Button(action: {
+                    match.end(matchWinner: .playerAway)
+                }, label: {
+                    Text(match.playerAway)
+                })
+                Button(role: .cancel, action: {}, label: {
+                    Text("Cancel")
+                })
+            } message: {
+                Text("Select which player should be declared winner.")
+            }
+            
             Button(action: {
-                match.end(matchWinner: .playerHome)
+                do {
+                    try localTennisManager.startLiveActivity()
+                } catch {
+                    // TODO: Feedback for failed live activity startup
+                }
             }, label: {
-                Text(match.playerHome)
+                Spacer()
+                Text("Start live activity")
+                    .frame(height: 50)
+                Spacer()
             })
-            Button(action: {
-                match.end(matchWinner: .playerAway)
-            }, label: {
-                Text(match.playerAway)
-            })
-            Button(role: .cancel, action: {}, label: {
-                Text("Cancel")
-            })
-        } message: {
-            Text("Select which player should be declared winner.")
+            .padding(.top)
+            .buttonStyle(.bordered)
+            .tint(.blue)
+            .disabled(localTennisManager.isLiveActivityActive || isFinished)
         }
-        
-        Button(action: {
-            do {
-                try localTennisManager.startLiveActivity()
-            } catch {}
-        }, label: {
-            Spacer()
-            Text("Start live activity")
-                .frame(height: 50)
-            Spacer()
-        })
-        .padding(.top)
-        .buttonStyle(.bordered)
-        .tint(.blue)
+        .onChange(of: match.currentSet) { oldValue, newValue in
+            localTennisManager.updateLiveActivity()
+        }
     }
 }
 

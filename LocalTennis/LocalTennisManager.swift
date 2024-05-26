@@ -13,6 +13,9 @@ class LocalTennisManager: ObservableObject {
     @Published private(set) var players: [Player] = []
     @Published private(set) var currentOngoingMatch: Match? = nil
     
+    private var activity: Activity<LocalTennisWidgetAttributes>? = nil
+    @Published private(set) var isLiveActivityActive = false
+    
     var isMatchOngoing: Bool {
         currentOngoingMatch != nil
     }
@@ -78,12 +81,40 @@ extension LocalTennisManager {
         let activityInitialState = LocalTennisWidgetAttributes.ContentState(
             match: ongoingMatch
         )
-        let _ = try Activity.request(
+        let newActivity = try Activity.request(
             attributes: activityAttributes,
             content: .init(
                 state: activityInitialState,
                 staleDate: nil
             )
         )
+        
+        Task {
+            for await activityState in newActivity.activityStateUpdates {
+                await MainActor.run {
+                    self.isLiveActivityActive = activityState == .active
+                }
+            }
+        }
+        
+        self.activity = newActivity
+    }
+    
+    func updateLiveActivity() -> Void {
+        guard let activity = self.activity else {
+            return
+        }
+        
+        guard let ongoingMatch = self.currentOngoingMatch else {
+            return
+        }
+        
+        let contentState = LocalTennisWidgetAttributes.ContentState(match: ongoingMatch)
+        
+        Task {
+            await activity.update(ActivityContent<Activity<LocalTennisWidgetAttributes>.ContentState>(
+                state: contentState, staleDate: nil
+            ))
+        }
     }
 }
