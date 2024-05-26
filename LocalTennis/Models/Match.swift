@@ -226,7 +226,7 @@ extension Match {
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
                 Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5),
-                Set(id: 3, gamesPlayerHome: 3, gamesPlayerAway: 6),
+                Set(id: 3, gamesPlayerHome: 1, gamesPlayerAway: 6),
                 Set(id: 4, gamesPlayerHome: 6, gamesPlayerAway: 0)
             ],
             winner: .playerHome

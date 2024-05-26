@@ -40,7 +40,7 @@ struct MatchScoreView: View {
                 Spacer()
                 
                 // Scores
-                Grid(alignment: .trailing, verticalSpacing: 4) {
+                Grid(alignment: .center, verticalSpacing: 4) {
                     ForEach(sides) { side in
                         GridRow(alignment: .bottom) {
                             ForEach(match.sets) { set in
