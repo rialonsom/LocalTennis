@@ -33,10 +33,9 @@ struct NewMatchView: View {
             }, label: {
                 HStack {
                     Text("Player home")
-                        .tint(.black)
                     Spacer()
                     Text("\(selectedPlayerHome.name)")
-                        .tint(focusedField == .playerHome ? .red : .black)
+                        .tint(focusedField == .playerHome ? .red : .primary)
                         .padding(.all, 5)
                         .background(.fill, in: RoundedRectangle(cornerSize: CGSize(width: 5, height: 5)))
                 }
@@ -63,10 +62,9 @@ struct NewMatchView: View {
             }, label: {
                 HStack {
                     Text("Player away")
-                        .tint(.black)
                     Spacer()
                     Text("\(selectedPlayerAway.name)")
-                        .tint(focusedField == .playerAway ? .red : .black)
+                        .tint(focusedField == .playerAway ? .red : .primary)
                         .padding(.all, 5)
                         .background(.fill, in: RoundedRectangle(cornerSize: CGSize(width: 5, height: 5)))
                 }
