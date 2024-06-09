@@ -77,7 +77,7 @@ extension LocalTennisManager {
             return
         }
         
-        let activityAttributes = LocalTennisWidgetAttributes(name: "Match")
+        let activityAttributes = LocalTennisWidgetAttributes()
         let activityInitialState = LocalTennisWidgetAttributes.ContentState(
             match: ongoingMatch
         )

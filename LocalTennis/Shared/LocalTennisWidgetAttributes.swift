@@ -15,5 +15,4 @@ struct LocalTennisWidgetAttributes: ActivityAttributes {
     }
 
     // Fixed non-changing properties about your activity go here!
-    var name: String
 }

@@ -17,33 +17,59 @@ struct LocalTennisWidgetLiveActivity: Widget {
             // Lock screen/banner UI goes here
             VStack {
                 MatchScoreView(match: context.state.match)
-                    .padding()
+                // TODO: Actions from live activity with intents
+//                HStack {
+//                    Button(action: {}) {
+//                        Label("Home", systemImage: "plus")
+//                    }
+//                    Button(action: {}) {
+//                        Label("Away", systemImage: "plus")
+//                    }
+//                }
             }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
+            .padding()
 
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    Text("Match")
+                        .font(.title2)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    Image(systemName: "tennisball.fill")
+                        .resizable()
+                        .frame(width: 25, height: 25, alignment: .topLeading)
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundStyle(.red)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom")
-                    // more content
+                    MatchScoreView(match: context.state.match)
+                        .padding(.top, 0.5)
+                    // TODO: Actions from live activity with intents
+//                    HStack {
+//                        Button(action: {}) {
+//                            Label("Home", systemImage: "plus")
+//                        }
+//                        Button(action: {}) {
+//                            Label("Away", systemImage: "plus")
+//                        }
+//                    }
                 }
             } compactLeading: {
-                Text("L")
+                Image(systemName: "tennisball.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.red)
             } compactTrailing: {
-                Text("T")
+                Text("Match")
             } minimal: {
-                Text("M")
+                Image(systemName: "tennisball.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.red)
             }
-            .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
     }
@@ -51,7 +77,7 @@ struct LocalTennisWidgetLiveActivity: Widget {
 
 extension LocalTennisWidgetAttributes {
     fileprivate static var preview: LocalTennisWidgetAttributes {
-        LocalTennisWidgetAttributes(name: "World")
+        LocalTennisWidgetAttributes()
     }
 }
 
@@ -66,6 +92,27 @@ extension LocalTennisWidgetAttributes.ContentState {
 }
 
 #Preview("Notification", as: .content, using: LocalTennisWidgetAttributes.preview) {
+   LocalTennisWidgetLiveActivity()
+} contentStates: {
+    LocalTennisWidgetAttributes.ContentState.exampleMatch
+    LocalTennisWidgetAttributes.ContentState.exampleMatchTieBreak
+}
+
+#Preview("DI Expanded", as: .dynamicIsland(.expanded), using: LocalTennisWidgetAttributes.preview) {
+   LocalTennisWidgetLiveActivity()
+} contentStates: {
+    LocalTennisWidgetAttributes.ContentState.exampleMatch
+    LocalTennisWidgetAttributes.ContentState.exampleMatchTieBreak
+}
+
+#Preview("DI Compact", as: .dynamicIsland(.compact), using: LocalTennisWidgetAttributes.preview) {
+   LocalTennisWidgetLiveActivity()
+} contentStates: {
+    LocalTennisWidgetAttributes.ContentState.exampleMatch
+    LocalTennisWidgetAttributes.ContentState.exampleMatchTieBreak
+}
+
+#Preview("DI Minimal", as: .dynamicIsland(.minimal), using: LocalTennisWidgetAttributes.preview) {
    LocalTennisWidgetLiveActivity()
 } contentStates: {
     LocalTennisWidgetAttributes.ContentState.exampleMatch

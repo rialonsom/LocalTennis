@@ -28,7 +28,7 @@ struct MatchScoreView: View {
                                 if (currentGame?.currentServe == side) {
                                     Image(systemName: "circle.fill")
                                         .resizable()
-                                        .foregroundStyle(.green)
+                                        .foregroundStyle(.red)
                                         .frame(width: 8, height: 8)
                                 }
                             }
