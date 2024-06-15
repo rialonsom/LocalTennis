@@ -14,31 +14,29 @@ struct PlayersView: View {
     var body: some View {
         let players = localTennisManager.players
         
-        NavigationStack {
-            List {
-                ForEach(players) { player in
-                    Text("\(player.name)")
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                localTennisManager.removePlayer(player: player)
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
+        List {
+            ForEach(players) { player in
+                Text("\(player.name)")
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            localTennisManager.removePlayer(player: player)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
                         }
-                }
+                    }
             }
-            .navigationTitle("Players")
-            .toolbar {
-                Button(action: {
-                    isShowingNewPlayerSheet.toggle()
-                }, label: {
-                    Label("New match", systemImage: "plus")
-                })
-            }
-            .sheet(isPresented: $isShowingNewPlayerSheet, content: {
-                NewPlayerSheetView(isPresented: $isShowingNewPlayerSheet)
+        }
+        .navigationTitle("Players")
+        .toolbar {
+            Button(action: {
+                isShowingNewPlayerSheet.toggle()
+            }, label: {
+                Label("New match", systemImage: "plus")
             })
         }
+        .sheet(isPresented: $isShowingNewPlayerSheet, content: {
+            NewPlayerSheetView(isPresented: $isShowingNewPlayerSheet)
+        })
     }
 }
 
@@ -47,6 +45,8 @@ struct PlayersView: View {
         players: Player.examplePlayers
     )
     
-    return PlayersView()
-        .environmentObject(localTennisManager)
+    return NavigationStack {
+        PlayersView()
+            .environmentObject(localTennisManager)
+    }
 }

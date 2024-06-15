@@ -17,6 +17,7 @@
 		4D51A1202BE7101F0080CDC5 /* LocalTennisStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51A11F2BE7101F0080CDC5 /* LocalTennisStore.swift */; };
 		4DA6CAD72BA51195001FF89D /* MatchScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */; };
 		4DA6CAD92BA52378001FF89D /* MatchActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6CAD82BA52378001FF89D /* MatchActionsView.swift */; };
+		4DAD1A482C1D38AC006899F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD1A472C1D38AC006899F5 /* SettingsView.swift */; };
 		4DC5EAED2B6FD31E0006A83C /* LocalTennisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */; };
 		4DC5EAF12B6FD31F0006A83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */; };
 		4DC5EAF42B6FD31F0006A83C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC5EAF32B6FD31F0006A83C /* Preview Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		4D51A11F2BE7101F0080CDC5 /* LocalTennisStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisStore.swift; sourceTree = "<group>"; };
 		4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreView.swift; sourceTree = "<group>"; };
 		4DA6CAD82BA52378001FF89D /* MatchActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchActionsView.swift; sourceTree = "<group>"; };
+		4DAD1A472C1D38AC006899F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4DC5EAE92B6FD31E0006A83C /* LocalTennis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTennis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisApp.swift; sourceTree = "<group>"; };
 		4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				4D36E72C2BA5FED900187DA7 /* Match */,
 				4D36E72D2BA5FEED00187DA7 /* History */,
 				4D36E72E2BA5FF0500187DA7 /* Players */,
+				4DAD1A472C1D38AC006899F5 /* SettingsView.swift */,
 				4D36E7292BA5F4D700187DA7 /* MainTabView.swift */,
 			);
 			path = Views;
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DAD1A482C1D38AC006899F5 /* SettingsView.swift in Sources */,
 				4DC5EB012B6FD3430006A83C /* Player.swift in Sources */,
 				4DECB4222C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */,
 				4DC5EB042B6FD3430006A83C /* Game.swift in Sources */,

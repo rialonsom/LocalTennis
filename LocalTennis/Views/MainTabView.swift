@@ -11,6 +11,7 @@ struct MainTabView: View {
     @State private var selectedTab = 0
     @State private var isShowingMatchSheet: Bool = false
     @State private var isShowingNewMatchAlert: Bool = false
+    @State private var isShowingSettingsSheet: Bool = false
     @EnvironmentObject var localTennisManager: LocalTennisManager
     
     var body: some View {
@@ -19,18 +20,28 @@ struct MainTabView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 Group {
-                    HistoryView()
-                        .tabItem {
-                            Label("History", systemImage: "figure.tennis")
-                        }
-                        .tag(0)
+                    NavigationStack {
+                        HistoryView()
+                            .toolbar {
+                                sharedToolbar()
+                            }
+                    }
+                    .tabItem {
+                        Label("History", systemImage: "figure.tennis")
+                    }
+                    .tag(0)
                     Spacer()
                         .tag(1)
-                    PlayersView()
-                        .tabItem {
-                            Label("Players", systemImage: "person.3.sequence")
-                        }
-                        .tag(2)
+                    NavigationStack {
+                        PlayersView()
+                            .toolbar {
+                                sharedToolbar()
+                            }
+                    }
+                    .tabItem {
+                        Label("Players", systemImage: "person.3.sequence")
+                    }
+                    .tag(2)
                 }
                 .toolbarBackground(.visible, for: .tabBar)
             }
@@ -39,6 +50,10 @@ struct MainTabView: View {
             }
             .fullScreenCover(isPresented: $isShowingMatchSheet, content: {
                 MatchSheetView(isPresented: $isShowingMatchSheet)
+                
+            })
+            .fullScreenCover(isPresented: $isShowingSettingsSheet, content: {
+                SettingsView()
             })
             
             Button(action: {
@@ -64,6 +79,19 @@ struct MainTabView: View {
                 })
             } message: {
                 Text("You need to create at least two players before playing a match.")
+            }
+        }
+        
+    }
+}
+
+extension MainTabView {
+    func sharedToolbar() -> some ToolbarContent {
+        ToolbarItemGroup(placement: .topBarLeading) {
+            Button(action: {
+                isShowingSettingsSheet.toggle()
+            }) {
+                Image(systemName: "slider.horizontal.3")
             }
         }
     }
