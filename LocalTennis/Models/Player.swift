@@ -22,5 +22,6 @@ extension Player {
         Player(name: "Rodrigo"),
         Player(name: "Juan"),
         Player(name: "Pedro"),
+        Player(name: "Diego"),
     ]
 }

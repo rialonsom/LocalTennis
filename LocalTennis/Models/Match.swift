@@ -202,10 +202,20 @@ extension Match {
         Match(
             playerHome: Player(name: "Rodrigo"),
             playerAway: Player(name: "Juan"),
-            mode: .bestOfThree,
+            mode: .bestOfFive,
             sets: [
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
-                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5)
+                Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5),
+                Set(
+                    id: 3,
+                    gamesPlayerHome: 6,
+                    gamesPlayerAway: 7,
+                    hasTieBreak: true,
+                    tieBreakPointsPlayerHome: 4,
+                    tieBreakPointsPlayerAway: 7
+                ),
+                Set(id: 4, gamesPlayerHome: 2, gamesPlayerAway: 6),
+                Set(id: 5, gamesPlayerHome: 6, gamesPlayerAway: 1)
             ],
             winner: .playerHome
         ),
@@ -227,9 +237,60 @@ extension Match {
                 Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 4),
                 Set(id: 2, gamesPlayerHome: 7, gamesPlayerAway: 5),
                 Set(id: 3, gamesPlayerHome: 1, gamesPlayerAway: 6),
-                Set(id: 4, gamesPlayerHome: 6, gamesPlayerAway: 0)
+                Set(
+                    id: 4,
+                    gamesPlayerHome: 7,
+                    gamesPlayerAway: 6,
+                    hasTieBreak: true,
+                    tieBreakPointsPlayerHome: 7,
+                    tieBreakPointsPlayerAway: 4
+                )
             ],
             winner: .playerHome
+        ),
+        Match(
+            playerHome: Player(name: "Diego"),
+            playerAway: Player(name: "Rodrigo"),
+            mode: .bestOfFive,
+            sets: [
+                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 3),
+                Set(
+                    id: 2,
+                    gamesPlayerHome: 6,
+                    gamesPlayerAway: 7,
+                    hasTieBreak: true,
+                    tieBreakPointsPlayerHome: 8,
+                    tieBreakPointsPlayerAway: 10
+                ),
+                Set(id: 3, gamesPlayerHome: 2, gamesPlayerAway: 6),
+                Set(
+                    id: 4,
+                    gamesPlayerHome: 6,
+                    gamesPlayerAway: 7,
+                    hasTieBreak: true,
+                    tieBreakPointsPlayerHome: 3,
+                    tieBreakPointsPlayerAway: 7
+                )
+            ],
+            winner: .playerAway
+        ),
+        Match(
+            playerHome: Player(name: "Juan"),
+            playerAway: Player(name: "Diego"),
+            mode: .bestOfThree,
+            sets: [
+                Set(
+                    id: 1,
+                    gamesPlayerHome: 6,
+                    gamesPlayerAway: 7,
+                    hasTieBreak: true,
+                    tieBreakPointsPlayerHome: 3,
+                    tieBreakPointsPlayerAway: 7
+                ),
+                Set(id: 2, gamesPlayerHome: 1, gamesPlayerAway: 6),
+                Set(id: 3, gamesPlayerHome: 4, gamesPlayerAway: 6),
+            ],
+            winner: .playerAway
         )
     ]
 }
