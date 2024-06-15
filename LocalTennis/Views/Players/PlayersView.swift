@@ -35,7 +35,7 @@ struct PlayersView: View {
             })
         }
         .sheet(isPresented: $isShowingNewPlayerSheet, content: {
-            NewPlayerSheetView(isPresented: $isShowingNewPlayerSheet)
+            NewPlayerSheetView()
         })
     }
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MatchView: View {
     @ObservedObject var match: Match
-    @Binding var isPresented: Bool
     @EnvironmentObject var localTennisManager: LocalTennisManager
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
@@ -26,8 +26,8 @@ struct MatchView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
                     withAnimation {
-                        isPresented.toggle()
                         localTennisManager.saveAndRemoveOngoingMatch()
+                        dismiss()
                     }
                 }, label: {
                     Text("Done")
@@ -40,7 +40,7 @@ struct MatchView: View {
 
 #Preview {
     NavigationStack {
-        MatchView(match: Match.exampleMatchTieBreak, isPresented: .constant(true))
+        MatchView(match: Match.exampleMatchTieBreak)
             .environmentObject(LocalTennisManager())
     }
 }

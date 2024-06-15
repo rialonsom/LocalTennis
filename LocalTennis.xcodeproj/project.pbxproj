@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D0FDF8D2BA7510A0034351C /* NewPlayerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDF8C2BA7510A0034351C /* NewPlayerSheetView.swift */; };
 		4D0FDF8F2BA77F720034351C /* NewMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDF8E2BA77F720034351C /* NewMatchView.swift */; };
-		4D1CC41E2BB9E6C0008C1E0D /* MatchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1CC41D2BB9E6C0008C1E0D /* MatchSheetView.swift */; };
+		4D1CC41E2BB9E6C0008C1E0D /* MatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1CC41D2BB9E6C0008C1E0D /* MatchRootView.swift */; };
 		4D36E7262BA5F2D300187DA7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7252BA5F2D300187DA7 /* HistoryView.swift */; };
 		4D36E7282BA5F2F000187DA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7272BA5F2F000187DA7 /* PlayersView.swift */; };
 		4D36E72A2BA5F4D700187DA7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36E7292BA5F4D700187DA7 /* MainTabView.swift */; };
@@ -74,7 +74,7 @@
 /* Begin PBXFileReference section */
 		4D0FDF8C2BA7510A0034351C /* NewPlayerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlayerSheetView.swift; sourceTree = "<group>"; };
 		4D0FDF8E2BA77F720034351C /* NewMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMatchView.swift; sourceTree = "<group>"; };
-		4D1CC41D2BB9E6C0008C1E0D /* MatchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSheetView.swift; sourceTree = "<group>"; };
+		4D1CC41D2BB9E6C0008C1E0D /* MatchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRootView.swift; sourceTree = "<group>"; };
 		4D36E7252BA5F2D300187DA7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		4D36E7272BA5F2F000187DA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		4D36E7292BA5F4D700187DA7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		4D36E72C2BA5FED900187DA7 /* Match */ = {
 			isa = PBXGroup;
 			children = (
-				4D1CC41D2BB9E6C0008C1E0D /* MatchSheetView.swift */,
+				4D1CC41D2BB9E6C0008C1E0D /* MatchRootView.swift */,
 				4DC5EB082B6FD37E0006A83C /* MatchView.swift */,
 				4DA6CAD62BA51195001FF89D /* MatchScoreView.swift */,
 				4D436C112BF8491500507192 /* MatchSetScoreView.swift */,
@@ -370,7 +370,7 @@
 				4DC5EAED2B6FD31E0006A83C /* LocalTennisApp.swift in Sources */,
 				4D36E7262BA5F2D300187DA7 /* HistoryView.swift in Sources */,
 				4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */,
-				4D1CC41E2BB9E6C0008C1E0D /* MatchSheetView.swift in Sources */,
+				4D1CC41E2BB9E6C0008C1E0D /* MatchRootView.swift in Sources */,
 				4D0FDF8F2BA77F720034351C /* NewMatchView.swift in Sources */,
 				4D36E72A2BA5F4D700187DA7 /* MainTabView.swift in Sources */,
 				4DC5EB022B6FD3430006A83C /* Match.swift in Sources */,

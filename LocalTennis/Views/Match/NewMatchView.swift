@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct NewMatchView: View {
-    @Binding var isPresented: Bool
     @EnvironmentObject var localTennisManager: LocalTennisManager
     @State private var selectedPlayerHome: Player = Player(name: "")
     @State private var selectedPlayerAway: Player = Player(name: "")
     @State private var selectedMode: Match.Mode = .bestOfThree
+    @Environment(\.dismiss) private var dismiss
     
     @State private var focusedField: FocusedField? = nil
     
@@ -92,7 +92,7 @@ struct NewMatchView: View {
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button(action: {
-                    isPresented.toggle()
+                    dismiss()
                 }, label: {
                     Text("Cancel")
                         .tint(.red)
@@ -125,9 +125,7 @@ struct NewMatchView: View {
     )
     
     return NavigationStack {
-        NewMatchView(
-            isPresented: .constant(true)
-        )
+        NewMatchView()
     }
     .environmentObject(localTennisManager)
 }

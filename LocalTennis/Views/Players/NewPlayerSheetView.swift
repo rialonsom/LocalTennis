@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct NewPlayerSheetView: View {
-    @Binding var isPresented: Bool
     @State private var name: String = ""
     @EnvironmentObject var localTennisManager: LocalTennisManager
     @State private var isShowingValidationAlert = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
@@ -22,7 +22,7 @@ struct NewPlayerSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: {
-                        isPresented.toggle()
+                        dismiss()
                     }, label: {
                         Text("Cancel")
                             .tint(.red)
@@ -32,7 +32,7 @@ struct NewPlayerSheetView: View {
                     Button(action: {
                         if (validatePlayerName(name: name)) {
                             localTennisManager.addPlayer(player: Player(name: name))
-                            isPresented.toggle()
+                            dismiss()
                         } else {
                             isShowingValidationAlert = true
                         }
@@ -49,7 +49,6 @@ struct NewPlayerSheetView: View {
         } message: {
             Text("Player name can't be empty or the same as another player.")
         }
-
     }
 }
 
@@ -70,6 +69,6 @@ extension NewPlayerSheetView {
         players: Player.examplePlayers
     )
     
-    return NewPlayerSheetView(isPresented: .constant(true))
+    return NewPlayerSheetView()
         .environmentObject(localTennisManager)
 }

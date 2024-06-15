@@ -49,7 +49,7 @@ struct MainTabView: View {
                 selectedTab = newValue == 1 ? oldValue: newValue
             }
             .fullScreenCover(isPresented: $isShowingMatchSheet, content: {
-                MatchSheetView(isPresented: $isShowingMatchSheet)
+                MatchRootView()
                 
             })
             .fullScreenCover(isPresented: $isShowingSettingsSheet, content: {

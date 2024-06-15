@@ -7,17 +7,16 @@
 
 import SwiftUI
 
-struct MatchSheetView: View {
-    @Binding var isPresented: Bool
+struct MatchRootView: View {
     @EnvironmentObject var localTennisManager: LocalTennisManager
     @State private var hasCreatedMatch: Bool = false
     
     var body: some View {
         NavigationStack {
             if (localTennisManager.isMatchOngoing) {
-                MatchView(match: localTennisManager.currentOngoingMatch!, isPresented: $isPresented)
+                MatchView(match: localTennisManager.currentOngoingMatch!)
             } else if (!hasCreatedMatch) {
-                NewMatchView(isPresented: $isPresented)
+                NewMatchView()
             } else {
                 EmptyView()
             }
@@ -35,8 +34,6 @@ struct MatchSheetView: View {
         currentOngoingMatch: Match.exampleMatch
     )
     
-    return MatchSheetView(
-        isPresented: .constant(true)
-    )
-    .environmentObject(localTennisManager)
+    return MatchRootView()
+        .environmentObject(localTennisManager)
 }
