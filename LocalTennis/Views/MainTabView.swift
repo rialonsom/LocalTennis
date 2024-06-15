@@ -87,11 +87,11 @@ struct MainTabView: View {
 
 extension MainTabView {
     func sharedToolbar() -> some ToolbarContent {
-        ToolbarItemGroup(placement: .topBarLeading) {
+        ToolbarItem(placement: .topBarLeading) {
             Button(action: {
                 isShowingSettingsSheet.toggle()
             }) {
-                Image(systemName: "slider.horizontal.3")
+                Label("Settings", systemImage: "slider.horizontal.3")
             }
         }
     }
