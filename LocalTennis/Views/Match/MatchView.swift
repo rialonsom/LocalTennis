@@ -26,13 +26,12 @@ struct MatchView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
                     withAnimation {
-                        localTennisManager.saveAndRemoveOngoingMatch()
+                        localTennisManager.removeActiveMatch()
                         dismiss()
                     }
                 }, label: {
-                    Text("Done")
+                    Text("Leave")
                 })
-                .disabled(!match.isFinished)
             }
         }
     }

@@ -13,15 +13,15 @@ struct MatchRootView: View {
     
     var body: some View {
         NavigationStack {
-            if (localTennisManager.isMatchOngoing) {
-                MatchView(match: localTennisManager.currentOngoingMatch!)
+            if (localTennisManager.isMatchActive) {
+                MatchView(match: localTennisManager.activeMatch!)
             } else if (!hasCreatedMatch) {
                 NewMatchView()
             } else {
                 EmptyView()
             }
         }
-        .onChange(of: localTennisManager.isMatchOngoing) { oldValue, newValue in
+        .onChange(of: localTennisManager.isMatchActive) { oldValue, newValue in
             if (!oldValue && newValue) {
                 hasCreatedMatch = true
             }
@@ -31,7 +31,7 @@ struct MatchRootView: View {
 
 #Preview {
     let localTennisManager = LocalTennisManager(
-        currentOngoingMatch: Match.exampleMatch
+        activeMatch: Match.exampleMatch
     )
     
     return MatchRootView()

@@ -101,7 +101,7 @@ struct NewMatchView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
                     withAnimation {
-                        localTennisManager.setupOngoingMatch(
+                        localTennisManager.setNewActiveMatch(
                             playerHome: selectedPlayerHome,
                             playerAway: selectedPlayerAway,
                             mode: selectedMode

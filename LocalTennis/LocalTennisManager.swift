@@ -11,32 +11,36 @@ import ActivityKit
 class LocalTennisManager: ObservableObject {
     @Published private(set) var matches: [Match] = []
     @Published private(set) var players: [Player] = []
-    @Published private(set) var currentOngoingMatch: Match? = nil
+    @Published private(set) var activeMatch: Match? = nil
     
     private var activity: Activity<LocalTennisWidgetAttributes>? = nil
     @Published private(set) var isLiveActivityActive = false
     
-    var isMatchOngoing: Bool {
-        currentOngoingMatch != nil
+    var isMatchActive: Bool {
+        activeMatch != nil
     }
     
-    init(matches: [Match] = [], players: [Player] = [], currentOngoingMatch: Match? = nil) {
+    init(matches: [Match] = [], players: [Player] = [], activeMatch: Match? = nil) {
         self.matches = matches
         self.players = players
-        self.currentOngoingMatch = currentOngoingMatch
+        self.activeMatch = activeMatch
     }
 }
 
 extension LocalTennisManager {
-    func setupOngoingMatch(playerHome: Player, playerAway: Player, mode: Match.Mode) -> Void {
-        self.currentOngoingMatch = Match(playerHome: playerHome, playerAway: playerAway, mode: mode, currentSet: nil)
+    func setNewActiveMatch(playerHome: Player, playerAway: Player, mode: Match.Mode) -> Void {
+        let activeMatch = Match(playerHome: playerHome, playerAway: playerAway, mode: mode, currentSet: nil)
+        
+        self.matches.insert(activeMatch, at: 0)
+        self.activeMatch = activeMatch
     }
     
-    func saveAndRemoveOngoingMatch() -> Void {
-        if (self.currentOngoingMatch != nil) {
-            self.matches.insert(self.currentOngoingMatch!, at: 0)
-        }
-        self.currentOngoingMatch = nil
+    func setActiveMatch(match: Match) -> Void {
+        self.activeMatch = match
+    }
+    
+    func removeActiveMatch() -> Void {
+        self.activeMatch = nil
     }
     
     func removeMatch(match: Match) -> Void {
@@ -73,13 +77,13 @@ extension LocalTennisManager {
             return
         }
         
-        guard let ongoingMatch = self.currentOngoingMatch else {
+        guard let activeMatch = self.activeMatch else {
             return
         }
         
         let activityAttributes = LocalTennisWidgetAttributes()
         let activityInitialState = LocalTennisWidgetAttributes.ContentState(
-            match: ongoingMatch
+            match: activeMatch
         )
         let newActivity = try Activity.request(
             attributes: activityAttributes,
@@ -105,11 +109,11 @@ extension LocalTennisManager {
             return
         }
         
-        guard let ongoingMatch = self.currentOngoingMatch else {
+        guard let activeMatch = self.activeMatch else {
             return
         }
         
-        let contentState = LocalTennisWidgetAttributes.ContentState(match: ongoingMatch)
+        let contentState = LocalTennisWidgetAttributes.ContentState(match: activeMatch)
         
         Task {
             await activity.update(ActivityContent<Activity<LocalTennisWidgetAttributes>.ContentState>(

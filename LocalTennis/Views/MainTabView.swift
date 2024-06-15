@@ -48,9 +48,13 @@ struct MainTabView: View {
             .onChange(of: selectedTab) { oldValue, newValue in
                 selectedTab = newValue == 1 ? oldValue: newValue
             }
+            .onChange(of: localTennisManager.activeMatch, { oldValue, newValue in
+                if (oldValue == nil && newValue != nil) {
+                    isShowingMatchSheet = true
+                }
+            })
             .fullScreenCover(isPresented: $isShowingMatchSheet, content: {
                 MatchRootView()
-                
             })
             .fullScreenCover(isPresented: $isShowingSettingsSheet, content: {
                 SettingsView()

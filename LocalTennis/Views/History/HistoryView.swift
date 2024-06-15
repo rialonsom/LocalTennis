@@ -20,6 +20,15 @@ struct HistoryView: View {
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
+                        
+                        if (!match.isFinished) {
+                            Button(role: .cancel) {
+                                localTennisManager.setActiveMatch(match: match)
+                            } label: {
+                                Label("Resume", systemImage: "play")
+                            }
+                            .tint(.green)
+                        }
                     }
             }
         }

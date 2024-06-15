@@ -200,6 +200,20 @@ extension Match {
     
     static let exampleHistoryMatches = [
         Match(
+            playerHome: Player(name: "Pedro"),
+            playerAway: Player(name: "Diego"),
+            mode: .bestOfThree,
+            sets: [
+                Set(id: 1, gamesPlayerHome: 6, gamesPlayerAway: 0),
+            ],
+            currentSet: Set(
+                id: 2,
+                gamesPlayerHome: 4,
+                gamesPlayerAway: 5,
+                currentGame: Game(pointsPlayerHome: .forty, pointsPlayerAway: .forty, serve: .playerAway)
+            )
+        ),
+        Match(
             playerHome: Player(name: "Rodrigo"),
             playerAway: Player(name: "Juan"),
             mode: .bestOfFive,
