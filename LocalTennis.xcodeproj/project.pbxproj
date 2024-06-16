@@ -45,6 +45,8 @@
 		4DECB4222C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */; };
 		4DECB4232C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */; };
 		4DF2D7342B6FD58A005F3FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D7332B6FD58A005F3FFF /* ContentView.swift */; };
+		4DF56F6F2C1FA5C000834DEC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF56F6E2C1FA5C000834DEC /* Launch Screen.storyboard */; };
+		4DF56F712C1FA87600834DEC /* LocalTennisIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF56F702C1FA87600834DEC /* LocalTennisIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		4DECB4092C027A0100C1D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DECB4212C029B4600C1D7C0 /* LocalTennisWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTennisWidgetAttributes.swift; sourceTree = "<group>"; };
 		4DF2D7332B6FD58A005F3FFF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4DF56F6E2C1FA5C000834DEC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4DF56F702C1FA87600834DEC /* LocalTennisIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocalTennisIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 				4DF2D7332B6FD58A005F3FFF /* ContentView.swift */,
 				4DC5EAEC2B6FD31E0006A83C /* LocalTennisApp.swift */,
 				4DC5EAF02B6FD31F0006A83C /* Assets.xcassets */,
+				4DF56F6E2C1FA5C000834DEC /* Launch Screen.storyboard */,
+				4DF56F702C1FA87600834DEC /* LocalTennisIcon.png */,
 				4DC5EAF22B6FD31F0006A83C /* Preview Content */,
 			);
 			path = LocalTennis;
@@ -341,8 +347,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF56F6F2C1FA5C000834DEC /* Launch Screen.storyboard in Resources */,
 				4DC5EAF42B6FD31F0006A83C /* Preview Assets.xcassets in Resources */,
 				4DC5EAF12B6FD31F0006A83C /* Assets.xcassets in Resources */,
+				4DF56F712C1FA87600834DEC /* LocalTennisIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,10 +553,11 @@
 				DEVELOPMENT_TEAM = RQLRTG48A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalTennis/Info.plist;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -576,10 +585,11 @@
 				DEVELOPMENT_TEAM = RQLRTG48A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalTennis/Info.plist;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
