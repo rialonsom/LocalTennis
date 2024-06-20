@@ -40,6 +40,7 @@ extension LocalTennisManager {
     }
     
     func removeActiveMatch() -> Void {
+        self.endLiveActivity(immediate: true)
         self.activeMatch = nil
     }
     
@@ -81,6 +82,13 @@ extension LocalTennisManager {
             return
         }
         
+        let activities = Activity<LocalTennisWidgetAttributes>.activities
+        activities.forEach { activity in
+            Task {
+                await activity.end(activity.content, dismissalPolicy: .immediate)
+            }
+        }
+        
         let activityAttributes = LocalTennisWidgetAttributes()
         let activityInitialState = LocalTennisWidgetAttributes.ContentState(
             match: activeMatch
@@ -119,6 +127,16 @@ extension LocalTennisManager {
             await activity.update(ActivityContent<Activity<LocalTennisWidgetAttributes>.ContentState>(
                 state: contentState, staleDate: nil
             ))
+        }
+    }
+    
+    func endLiveActivity(immediate: Bool = false) -> Void {
+        guard let activity = self.activity else {
+            return
+        }
+        
+        Task {
+            await activity.end(activity.content, dismissalPolicy: immediate ? .immediate : .default)
         }
     }
 }
