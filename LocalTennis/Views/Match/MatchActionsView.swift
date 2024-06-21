@@ -90,23 +90,6 @@ struct MatchActionsView: View {
             } message: {
                 Text("Select which player should be declared winner.")
             }
-            
-            Button(action: {
-                do {
-                    try localTennisManager.startLiveActivity()
-                } catch {
-                    // TODO: Feedback for failed live activity startup
-                }
-            }, label: {
-                Spacer()
-                Text("Start live activity")
-                    .frame(height: 50)
-                Spacer()
-            })
-            .padding(.top)
-            .buttonStyle(.bordered)
-            .tint(.blue)
-            .disabled(localTennisManager.isLiveActivityActive || isFinished)
         }
         .onChange(of: match.currentSet) { oldValue, newValue in
             localTennisManager.updateLiveActivity()

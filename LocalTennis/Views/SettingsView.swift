@@ -11,11 +11,14 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var localTennisManager: LocalTennisManager
     
+    @StateObject private var userPreferences = UserPreferences()
+    
     var body: some View {
         NavigationStack {
             List {
-                Text("Common setting 1")
-                Text("Common setting 2")
+                Toggle(isOn: $userPreferences.liveActivitiesEnabled, label: {
+                    Text("Use live activities")
+                })
                 
                 #if DEBUG
                 Section {

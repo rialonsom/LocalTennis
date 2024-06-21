@@ -25,6 +25,8 @@ class LocalTennisManager: ObservableObject {
         self.players = players
         self.activeMatch = activeMatch
     }
+    
+    let userPreferences = UserPreferences()
 }
 
 extension LocalTennisManager {
@@ -33,10 +35,26 @@ extension LocalTennisManager {
         
         self.matches.insert(activeMatch, at: 0)
         self.activeMatch = activeMatch
+        
+        if (self.userPreferences.liveActivitiesEnabled) {
+            do {
+                try self.startLiveActivity()
+            } catch {
+                print(error)
+            }
+        }
     }
     
     func setActiveMatch(match: Match) -> Void {
         self.activeMatch = match
+        
+        if (self.userPreferences.liveActivitiesEnabled) {
+            do {
+                try self.startLiveActivity()
+            } catch {
+                print(error)
+            }
+        }
     }
     
     func removeActiveMatch() -> Void {
